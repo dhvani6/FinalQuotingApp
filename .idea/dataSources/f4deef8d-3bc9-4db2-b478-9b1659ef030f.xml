@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="QuotingApp@172.26.54.217">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.14">
+    <root id="1">
+      <ServerVersion>14.0.2027</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="COT-CIS4375-09">
+      <ObjectId>5</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="3" parent="1" name="QuotingApp">
+      <ObjectId>6</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="4" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="5" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="6" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="7" parent="1" name="tempdb">
+      <ObjectId>2</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <schema id="8" parent="3" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="9" parent="3" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="10" parent="3" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="11" parent="3" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="12" parent="3" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="13" parent="3" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="14" parent="3" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="15" parent="3" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="16" parent="3" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="17" parent="3" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="18" parent="3" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2019-07-21.18:24:31.900</IntrospectionTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="19" parent="3" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="20" parent="3" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <table id="21" parent="18" name="ar_internal_metadata">
+      <ObjectId>1509580416</ObjectId>
+      <CreatedTimestamp>2019-07-21.18:13:56.377</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.18:13:56.377</ModifiedTimestamp>
+    </table>
+    <table id="22" parent="18" name="samples">
+      <ObjectId>1541580530</ObjectId>
+      <CreatedTimestamp>2019-07-21.18:13:56.683</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.18:13:56.683</ModifiedTimestamp>
+    </table>
+    <table id="23" parent="18" name="schema_migrations">
+      <ObjectId>1477580302</ObjectId>
+      <CreatedTimestamp>2019-07-21.18:13:56.107</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.18:13:56.107</ModifiedTimestamp>
+    </table>
+    <routine id="24" parent="18" name="fn_diagramobjects">
+      <ObjectId>1157579162</ObjectId>
+      <SourceTextLength>1647</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.740</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.740</ModifiedTimestamp>
+      <RoutineKind>function</RoutineKind>
+      <RoutineType>scalar-fun</RoutineType>
+    </routine>
+    <routine id="25" parent="18" name="sp_alterdiagram">
+      <ObjectId>1125579048</ObjectId>
+      <SourceTextLength>1501</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.737</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.737</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="26" parent="18" name="sp_creatediagram">
+      <ObjectId>1093578934</ObjectId>
+      <SourceTextLength>1223</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.733</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.733</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="27" parent="18" name="sp_dropdiagram">
+      <ObjectId>1141579105</ObjectId>
+      <SourceTextLength>896</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.740</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.740</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="28" parent="18" name="sp_helpdiagramdefinition">
+      <ObjectId>1077578877</ObjectId>
+      <SourceTextLength>921</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.733</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.733</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="29" parent="18" name="sp_helpdiagrams">
+      <ObjectId>1061578820</ObjectId>
+      <SourceTextLength>658</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.730</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.730</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="30" parent="18" name="sp_renamediagram">
+      <ObjectId>1109578991</ObjectId>
+      <SourceTextLength>1721</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.737</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.737</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="31" parent="18" name="sp_upgraddiagrams">
+      <ObjectId>997578592</ObjectId>
+      <SourceTextLength>1463</SourceTextLength>
+      <CreatedTimestamp>2019-07-21.16:50:56.727</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.16:50:56.727</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <column id="32" parent="21" name="key">
+      <Position>1</Position>
+      <DataType>nvarchar(4000 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="21" name="value">
+      <Position>2</Position>
+      <DataType>nvarchar(4000 char)|0s</DataType>
+    </column>
+    <column id="34" parent="21" name="created_at">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="21" name="updated_at">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="36" parent="21" name="PK__ar_inter__DFD83CAED5C281D8">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>key</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="21" name="PK__ar_inter__DFD83CAED5C281D8">
+      <ObjectId>1525580473</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-07-21.18:13:56.380</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.18:13:56.380</ModifiedTimestamp>
+      <ColNames>key</ColNames>
+      <UnderlyingIndexName>PK__ar_inter__DFD83CAED5C281D8</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="22" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="22" name="name">
+      <Position>2</Position>
+      <DataType>nvarchar(4000 char)|0s</DataType>
+    </column>
+    <column id="40" parent="22" name="created_at">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="22" name="updated_at">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="42" parent="22" name="PK__samples__3213E83F323E0BE3">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="43" parent="22" name="PK__samples__3213E83F323E0BE3">
+      <ObjectId>1557580587</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-07-21.18:13:56.683</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.18:13:56.683</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__samples__3213E83F323E0BE3</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="23" name="version">
+      <Position>1</Position>
+      <DataType>nvarchar(4000 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="45" parent="23" name="PK__schema_m__79B5C94C4A4BD4B2">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>version</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="23" name="PK__schema_m__79B5C94C4A4BD4B2">
+      <ObjectId>1493580359</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-07-21.18:13:56.110</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-21.18:13:56.110</ModifiedTimestamp>
+      <ColNames>version</ColNames>
+      <UnderlyingIndexName>PK__schema_m__79B5C94C4A4BD4B2</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <argument id="47" parent="24">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="48" parent="25" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="49" parent="25" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="50" parent="25" name="@version">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="51" parent="25" name="@definition">
+      <Position>4</Position>
+      <DataType>varbinary(max)|0s</DataType>
+    </argument>
+    <argument id="52" parent="26" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="53" parent="26" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="54" parent="26" name="@version">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="55" parent="26" name="@definition">
+      <Position>4</Position>
+      <DataType>varbinary(max)|0s</DataType>
+    </argument>
+    <argument id="56" parent="27" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="57" parent="27" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="58" parent="28" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="59" parent="28" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="60" parent="29" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="61" parent="29" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="62" parent="30" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="63" parent="30" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="64" parent="30" name="@new_diagramname">
+      <Position>3</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+  </database-model>
+</dataSource>
