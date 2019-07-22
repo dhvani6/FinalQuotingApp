@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  suggested_list_price: 9.99
+  price_change_date: 2019-07-21 23:39:52
+  new_price: 9.99
+
+two:
+  suggested_list_price: 9.99
+  price_change_date: 2019-07-21 23:39:52
+  new_price: 9.99

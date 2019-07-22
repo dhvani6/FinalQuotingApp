@@ -1,0 +1,2 @@
+class ListPrice < ApplicationRecord
+end

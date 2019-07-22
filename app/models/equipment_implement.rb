@@ -1,0 +1,2 @@
+class EquipmentImplement < ApplicationRecord
+end

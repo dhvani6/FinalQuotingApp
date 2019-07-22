@@ -1,0 +1,2 @@
+module TireReplacementFrontsHelper
+end

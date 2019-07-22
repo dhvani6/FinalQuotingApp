@@ -1,0 +1,2 @@
+class Implement < ApplicationRecord
+end

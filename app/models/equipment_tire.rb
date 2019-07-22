@@ -1,0 +1,2 @@
+class EquipmentTire < ApplicationRecord
+end

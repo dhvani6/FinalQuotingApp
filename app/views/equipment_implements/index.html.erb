@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equipment Implements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipment_implements.each do |equipment_implement| %>
+      <tr>
+        <td><%= link_to 'Show', equipment_implement %></td>
+        <td><%= link_to 'Edit', edit_equipment_implement_path(equipment_implement) %></td>
+        <td><%= link_to 'Destroy', equipment_implement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment Implement', new_equipment_implement_path %>

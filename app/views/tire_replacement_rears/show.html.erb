@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rear tires:</strong>
+  <%= @tire_replacement_rear.rear_tires %>
+</p>
+
+<p>
+  <strong>Order number:</strong>
+  <%= @tire_replacement_rear.order_number %>
+</p>
+
+<%= link_to 'Edit', edit_tire_replacement_rear_path(@tire_replacement_rear) %> |
+<%= link_to 'Back', tire_replacement_rears_path %>

@@ -1,0 +1,2 @@
+module EquipmentAttachmentsHelper
+end

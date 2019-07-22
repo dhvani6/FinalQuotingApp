@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Suggested list price:</strong>
+  <%= @list_price.suggested_list_price %>
+</p>
+
+<p>
+  <strong>Price change date:</strong>
+  <%= @list_price.price_change_date %>
+</p>
+
+<p>
+  <strong>New price:</strong>
+  <%= @list_price.new_price %>
+</p>
+
+<%= link_to 'Edit', edit_list_price_path(@list_price) %> |
+<%= link_to 'Back', list_prices_path %>

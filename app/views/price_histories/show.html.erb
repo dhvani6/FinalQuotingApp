@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Past price:</strong>
+  <%= @price_history.past_price %>
+</p>
+
+<%= link_to 'Edit', edit_price_history_path(@price_history) %> |
+<%= link_to 'Back', price_histories_path %>

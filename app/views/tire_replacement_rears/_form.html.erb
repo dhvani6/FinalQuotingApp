@@ -1,0 +1,27 @@
+<%= form_with(model: tire_replacement_rear, local: true) do |form| %>
+  <% if tire_replacement_rear.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tire_replacement_rear.errors.count, "error") %> prohibited this tire_replacement_rear from being saved:</h2>
+
+      <ul>
+      <% tire_replacement_rear.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rear_tires %>
+    <%= form.text_field :rear_tires %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_number %>
+    <%= form.text_field :order_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

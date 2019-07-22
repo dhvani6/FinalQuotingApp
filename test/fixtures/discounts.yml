@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  discount_percentage: 9.99
+  description: MyString
+
+two:
+  discount_percentage: 9.99
+  description: MyString

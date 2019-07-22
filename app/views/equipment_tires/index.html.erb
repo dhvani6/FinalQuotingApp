@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equipment Tires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipment_tires.each do |equipment_tire| %>
+      <tr>
+        <td><%= link_to 'Show', equipment_tire %></td>
+        <td><%= link_to 'Edit', edit_equipment_tire_path(equipment_tire) %></td>
+        <td><%= link_to 'Destroy', equipment_tire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment Tire', new_equipment_tire_path %>

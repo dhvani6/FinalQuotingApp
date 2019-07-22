@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Base quote price:</strong>
+  <%= @quote.base_quote_price %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @quote.total_price %>
+</p>
+
+<p>
+  <strong>Quote date:</strong>
+  <%= @quote.quote_date %>
+</p>
+
+<p>
+  <strong>Markup percentage:</strong>
+  <%= @quote.markup_percentage %>
+</p>
+
+<p>
+  <strong>Finalize date:</strong>
+  <%= @quote.finalize_date %>
+</p>
+
+<p>
+  <strong>Sale finalized:</strong>
+  <%= @quote.sale_finalized %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

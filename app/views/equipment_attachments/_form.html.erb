@@ -1,0 +1,17 @@
+<%= form_with(model: equipment_attachment, local: true) do |form| %>
+  <% if equipment_attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equipment_attachment.errors.count, "error") %> prohibited this equipment_attachment from being saved:</h2>
+
+      <ul>
+      <% equipment_attachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

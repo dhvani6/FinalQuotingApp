@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tire Replacement Fronts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Front tires</th>
+      <th>Order number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tire_replacement_fronts.each do |tire_replacement_front| %>
+      <tr>
+        <td><%= tire_replacement_front.front_tires %></td>
+        <td><%= tire_replacement_front.order_number %></td>
+        <td><%= link_to 'Show', tire_replacement_front %></td>
+        <td><%= link_to 'Edit', edit_tire_replacement_front_path(tire_replacement_front) %></td>
+        <td><%= link_to 'Destroy', tire_replacement_front, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tire Replacement Front', new_tire_replacement_front_path %>

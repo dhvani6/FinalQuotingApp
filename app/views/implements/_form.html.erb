@@ -1,0 +1,22 @@
+<%= form_with(model: implement, local: true) do |form| %>
+  <% if implement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(implement.errors.count, "error") %> prohibited this implement from being saved:</h2>
+
+      <ul>
+      <% implement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :implement_feature %>
+    <%= form.text_field :implement_feature %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

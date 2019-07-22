@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  base_quote_price: 9.99
+  total_price: 9.99
+  quote_date: 2019-07-21 23:43:36
+  markup_percentage: 9.99
+  finalize_date: 2019-07-21 23:43:36
+  sale_finalized: false
+
+two:
+  base_quote_price: 9.99
+  total_price: 9.99
+  quote_date: 2019-07-21 23:43:36
+  markup_percentage: 9.99
+  finalize_date: 2019-07-21 23:43:36
+  sale_finalized: false

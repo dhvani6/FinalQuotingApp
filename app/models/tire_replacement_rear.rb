@@ -1,0 +1,2 @@
+class TireReplacementRear < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Specific Equipments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serial number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @specific_equipments.each do |specific_equipment| %>
+      <tr>
+        <td><%= specific_equipment.serial_number %></td>
+        <td><%= link_to 'Show', specific_equipment %></td>
+        <td><%= link_to 'Edit', edit_specific_equipment_path(specific_equipment) %></td>
+        <td><%= link_to 'Destroy', specific_equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Specific Equipment', new_specific_equipment_path %>
