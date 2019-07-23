@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_22_045337) do
+ActiveRecord::Schema.define(version: 2019_07_23_203247) do
 
   create_table "attachments", force: :cascade do |t|
     t.varchar "attachment_feature", limit: 45, null: false
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_07_22_045337) do
     t.bigint "fk_employee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_customers_on_employee_id"
   end
 
   create_table "discounts", force: :cascade do |t|
@@ -120,6 +122,8 @@ ActiveRecord::Schema.define(version: 2019_07_22_045337) do
     t.bigint "fk_customer_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_quotes_on_customer_id"
   end
 
   create_table "samples", force: :cascade do |t|
@@ -157,6 +161,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_045337) do
   end
 
   add_foreign_key "customers", "customers", column: "fk_employee_id", name: "FK_customers_customers"
+  add_foreign_key "customers", "employees"
   add_foreign_key "equipment_attachments", "attachments", column: "fk_attachment_id", name: "FK_equipment_attachments_attachments"
   add_foreign_key "equipment_attachments", "models", column: "fk_model_id", name: "FK_equipment_attachments_models"
   add_foreign_key "equipment_implements", "implements", column: "fk_implement_id", name: "FK_equipment_implements_implements"
@@ -171,6 +176,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_045337) do
   add_foreign_key "list_prices", "tire_replacement_rears", column: "fk_tirer_id", name: "FK_list_prices_tire_replacement_rears"
   add_foreign_key "models", "series", column: "fk_series_id", name: "FK_models_series"
   add_foreign_key "price_histories", "list_prices", column: "fk_price_id", name: "FK_price_histories_list_prices"
+  add_foreign_key "quotes", "customers"
   add_foreign_key "quotes", "customers", column: "fk_customer_id", name: "FK_quotes_customers"
   add_foreign_key "quotes", "discounts", column: "fk_discount_id", name: "FK_quotes_discounts"
   add_foreign_key "series", "manufacturers", column: "fk_manufacturer_id", name: "FK_series_manufacturers"

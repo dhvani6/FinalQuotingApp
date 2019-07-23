@@ -12,32 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :base_quote_price %>
+    <strong>Customer:</strong>
+    <%= form.collection_select :customer_id, Customer.all,:id,:customer_lname %>
+  </div>
+
+  <div class="field">
+    <strong>Base Quote Price:</strong>
     <%= form.text_field :base_quote_price %>
   </div>
 
   <div class="field">
-    <%= form.label :total_price %>
+    <strong>Total Price:</strong>
     <%= form.text_field :total_price %>
   </div>
 
   <div class="field">
-    <%= form.label :quote_date %>
+    <strong>Quote Date:</strong>
     <%= form.datetime_select :quote_date %>
   </div>
 
   <div class="field">
-    <%= form.label :markup_percentage %>
+    <strong>Markup Percentage:</strong>
     <%= form.text_field :markup_percentage %>
   </div>
 
   <div class="field">
-    <%= form.label :finalize_date %>
+    <strong>Finalize Date:</strong>
     <%= form.datetime_select :finalize_date %>
   </div>
 
   <div class="field">
-    <%= form.label :sale_finalized %>
+    <strong>Is the Sale Finalized?:</strong>
     <%= form.check_box :sale_finalized %>
   </div>
 

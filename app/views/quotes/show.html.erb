@@ -1,32 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Base quote price:</strong>
+  <strong>Customer Last Name:</strong>
+  <%= @quote.customer.customer_lname %>
+</p>
+
+
+<p>
+  <strong>Base Quote Price:</strong>
   <%= @quote.base_quote_price %>
 </p>
 
 <p>
-  <strong>Total price:</strong>
+  <strong>Total Price:</strong>
   <%= @quote.total_price %>
 </p>
 
 <p>
-  <strong>Quote date:</strong>
+  <strong>Quote Date:</strong>
   <%= @quote.quote_date %>
 </p>
 
 <p>
-  <strong>Markup percentage:</strong>
+  <strong>Markup Percentage:</strong>
   <%= @quote.markup_percentage %>
 </p>
 
 <p>
-  <strong>Finalize date:</strong>
+  <strong>Finalize Date:</strong>
   <%= @quote.finalize_date %>
 </p>
 
 <p>
-  <strong>Sale finalized:</strong>
+  <strong>Is the Sale Finalized?:</strong>
   <%= @quote.sale_finalized %>
 </p>
 

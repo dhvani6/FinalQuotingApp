@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Customers</h1>
 
-<table>
+<table id="customers">
   <thead>
     <tr>
+      <th>Employee Last Name</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Phone Number</th>
@@ -15,10 +17,10 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
+        <td><%= customer.employee %></td>
         <td><%= customer.customer_fname %></td>
         <td><%= customer.customer_lname %></td>
         <td><%= customer.customer_phone %></td>
@@ -29,10 +31,10 @@
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
          <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
       </tr>
     <% end %>
   </tbody>
+
 </table>
 
 <br>
