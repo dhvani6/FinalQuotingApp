@@ -13,96 +13,113 @@
 ActiveRecord::Schema.define(version: 2019_07_22_045337) do
 
   create_table "attachments", force: :cascade do |t|
-    t.string "attachment_feature"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "attachment_feature", limit: 45, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "customer_fname"
-    t.string "customer_lname"
-    t.string "customer_phone"
-    t.string "customer_address"
-    t.string "customer_city"
-    t.string "customer_state"
-    t.string "customer_zip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "customer_fname", limit: 35, null: false
+    t.varchar "customer_lname", limit: 35, null: false
+    t.varchar "customer_phone", limit: 12, null: false
+    t.varchar "customer_address", limit: 35, null: false
+    t.varchar "customer_city", limit: 21
+    t.varchar "customer_state", limit: 2, null: false
+    t.varchar "customer_zip", limit: 5, null: false
+    t.bigint "fk_employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "discounts", force: :cascade do |t|
-    t.decimal "discount_percentage", precision: 18, scale: 0
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal "discount_percentage", precision: 4, scale: 2, null: false
+    t.varchar "description", limit: 80, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string "employee_fname"
-    t.string "employee_lname"
-    t.string "employee_phone"
-    t.string "store_location"
-    t.boolean "is_manager"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "employee_fname", limit: 35, null: false
+    t.varchar "employee_lname", limit: 35, null: false
+    t.varchar "employee_phone", limit: 12, null: false
+    t.varchar "store_location", limit: 15, null: false
+    t.boolean "is_manager", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "equipment_attachments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "fk_attachment_id", null: false
+    t.bigint "fk_model_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "equipment_implements", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "fk_implement_id", null: false
+    t.bigint "fk_model_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "equipment_tires", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "fk_tiref_id"
+    t.bigint "fk_tirer_id"
+    t.bigint "fk_model_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "implements", force: :cascade do |t|
-    t.string "implement_feature"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "implement_feature", limit: 45, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "list_prices", force: :cascade do |t|
-    t.decimal "suggested_list_price", precision: 18, scale: 0
+    t.decimal "suggested_list_price", precision: 7, scale: 2, null: false
     t.datetime "price_change_date"
-    t.decimal "new_price", precision: 18, scale: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal "new_price", precision: 7, scale: 2
+    t.bigint "fk_implement_id"
+    t.bigint "fk_attachment_id"
+    t.bigint "fk_model_id"
+    t.bigint "fk_tiref_id"
+    t.bigint "fk_tirer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "manufacturers", force: :cascade do |t|
-    t.string "manufacturer_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "manufacturer_name", limit: 15, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "models", force: :cascade do |t|
-    t.string "model_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "model_number", limit: 21, null: false
+    t.bigint "fk_series_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "price_histories", force: :cascade do |t|
-    t.decimal "past_price", precision: 18, scale: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal "past_price", precision: 7, scale: 2, null: false
+    t.bigint "fk_price_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "quotes", force: :cascade do |t|
-    t.decimal "base_quote_price", precision: 18, scale: 0
-    t.decimal "total_price", precision: 18, scale: 0
-    t.datetime "quote_date"
-    t.decimal "markup_percentage", precision: 18, scale: 0
+    t.decimal "base_quote_price", precision: 7, scale: 2, null: false
+    t.decimal "total_price", precision: 7, scale: 2
+    t.datetime "quote_date", null: false
+    t.decimal "markup_percentage", precision: 4, scale: 2, null: false
     t.datetime "finalize_date"
-    t.boolean "sale_finalized"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean "sale_finalized", null: false
+    t.bigint "fk_discount_id"
+    t.bigint "fk_customer_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "samples", force: :cascade do |t|
@@ -112,29 +129,50 @@ ActiveRecord::Schema.define(version: 2019_07_22_045337) do
   end
 
   create_table "series", force: :cascade do |t|
-    t.string "series_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "series_number", limit: 21, null: false
+    t.bigint "fk_manufacturer_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "specific_equipments", force: :cascade do |t|
-    t.string "serial_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "serial_number", limit: 21, null: false
+    t.bigint "fk_model_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tire_replacement_fronts", force: :cascade do |t|
-    t.string "front_tires"
-    t.string "order_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "front_tires", limit: 48, null: false
+    t.varchar "order_number", limit: 21, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tire_replacement_rears", force: :cascade do |t|
-    t.string "rear_tires"
-    t.string "order_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.varchar "rear_tires", limit: 48, null: false
+    t.varchar "order_number", limit: 21, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_foreign_key "customers", "customers", column: "fk_employee_id", name: "FK_customers_customers"
+  add_foreign_key "equipment_attachments", "attachments", column: "fk_attachment_id", name: "FK_equipment_attachments_attachments"
+  add_foreign_key "equipment_attachments", "models", column: "fk_model_id", name: "FK_equipment_attachments_models"
+  add_foreign_key "equipment_implements", "implements", column: "fk_implement_id", name: "FK_equipment_implements_implements"
+  add_foreign_key "equipment_implements", "models", column: "fk_model_id", name: "FK_equipment_implements_models"
+  add_foreign_key "equipment_tires", "models", column: "fk_model_id", name: "FK_equipment_tires_models"
+  add_foreign_key "equipment_tires", "tire_replacement_fronts", column: "fk_tiref_id", name: "FK_equipment_tires_tire_replacement_fronts"
+  add_foreign_key "equipment_tires", "tire_replacement_rears", column: "fk_tirer_id", name: "FK_equipment_tires_tire_replacement_rears"
+  add_foreign_key "list_prices", "attachments", column: "fk_attachment_id", name: "FK_list_prices_attachments"
+  add_foreign_key "list_prices", "implements", column: "fk_implement_id", name: "FK_list_prices_implements"
+  add_foreign_key "list_prices", "models", column: "fk_model_id", name: "FK_list_prices_models"
+  add_foreign_key "list_prices", "tire_replacement_fronts", column: "fk_tiref_id", name: "FK_list_prices_tire_replacement_fronts"
+  add_foreign_key "list_prices", "tire_replacement_rears", column: "fk_tirer_id", name: "FK_list_prices_tire_replacement_rears"
+  add_foreign_key "models", "series", column: "fk_series_id", name: "FK_models_series"
+  add_foreign_key "price_histories", "list_prices", column: "fk_price_id", name: "FK_price_histories_list_prices"
+  add_foreign_key "quotes", "customers", column: "fk_customer_id", name: "FK_quotes_customers"
+  add_foreign_key "quotes", "discounts", column: "fk_discount_id", name: "FK_quotes_discounts"
+  add_foreign_key "series", "manufacturers", column: "fk_manufacturer_id", name: "FK_series_manufacturers"
+  add_foreign_key "specific_equipments", "models", column: "fk_model_id", name: "FK_specific_equipments_models"
 end
