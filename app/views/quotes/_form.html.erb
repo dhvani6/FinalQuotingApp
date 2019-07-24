@@ -17,6 +17,17 @@
   </div>
 
   <div class="field">
+    <strong>Manufacturer:</strong>
+    <%= form.collection_select :manufacturer_id, Manufacturer.all,:id,:manufacturer_name %>
+  </div>
+
+  <div class="field">
+    <strong>Series:</strong>
+    <%= form.collection_select :series_id, Series.all,:id,:series_number %>
+  </div>
+
+
+  <div class="field">
     <strong>Base Quote Price:</strong>
     <%= form.text_field :base_quote_price %>
   </div>
