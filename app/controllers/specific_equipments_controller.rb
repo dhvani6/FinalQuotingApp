@@ -69,6 +69,6 @@ class SpecificEquipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def specific_equipment_params
-      params.require(:specific_equipment).permit(:serial_number)
+      params.require(:specific_equipment).permit(:serial_number, :quote_id)
     end
 end

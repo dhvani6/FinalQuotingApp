@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_032700) do
+ActiveRecord::Schema.define(version: 2019_07_24_091335) do
 
   create_table "attachments", force: :cascade do |t|
     t.varchar "attachment_feature", limit: 45, null: false
@@ -52,16 +52,24 @@ ActiveRecord::Schema.define(version: 2019_07_24_032700) do
   create_table "equipment_attachments", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "attachment_id"
+    t.index ["attachment_id"], name: "index_equipment_attachments_on_attachment_id"
   end
 
   create_table "equipment_implements", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "implement_id"
+    t.index ["implement_id"], name: "index_equipment_implements_on_implement_id"
   end
 
   create_table "equipment_tires", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "tire_replacement_front_id"
+    t.bigint "tire_replacement_rear_id"
+    t.index ["tire_replacement_front_id"], name: "index_equipment_tires_on_tire_replacement_front_id"
+    t.index ["tire_replacement_rear_id"], name: "index_equipment_tires_on_tire_replacement_rear_id"
   end
 
   create_table "implements", force: :cascade do |t|
@@ -109,10 +117,18 @@ ActiveRecord::Schema.define(version: 2019_07_24_032700) do
     t.bigint "manufacturer_id"
     t.bigint "series_id"
     t.bigint "model_id"
+    t.bigint "tire_replacement_front_id"
+    t.bigint "tire_replacement_rear_id"
+    t.bigint "implement_id"
+    t.bigint "attachment_id"
+    t.index ["attachment_id"], name: "index_quotes_on_attachment_id"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
+    t.index ["implement_id"], name: "index_quotes_on_implement_id"
     t.index ["manufacturer_id"], name: "index_quotes_on_manufacturer_id"
     t.index ["model_id"], name: "index_quotes_on_model_id"
     t.index ["series_id"], name: "index_quotes_on_series_id"
+    t.index ["tire_replacement_front_id"], name: "index_quotes_on_tire_replacement_front_id"
+    t.index ["tire_replacement_rear_id"], name: "index_quotes_on_tire_replacement_rear_id"
   end
 
   create_table "samples", force: :cascade do |t|
@@ -131,6 +147,8 @@ ActiveRecord::Schema.define(version: 2019_07_24_032700) do
     t.varchar "serial_number", limit: 21, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "quote_id"
+    t.index ["quote_id"], name: "index_specific_equipments_on_quote_id"
   end
 
   create_table "sysdiagrams", primary_key: "diagram_id", id: :integer, force: :cascade do |t|
@@ -156,8 +174,17 @@ ActiveRecord::Schema.define(version: 2019_07_24_032700) do
   end
 
   add_foreign_key "customers", "employees"
+  add_foreign_key "equipment_attachments", "attachments"
+  add_foreign_key "equipment_implements", "implements"
+  add_foreign_key "equipment_tires", "tire_replacement_fronts"
+  add_foreign_key "equipment_tires", "tire_replacement_rears"
+  add_foreign_key "quotes", "attachments"
   add_foreign_key "quotes", "customers", name: "FK_Quote_Employee"
+  add_foreign_key "quotes", "implements"
   add_foreign_key "quotes", "manufacturers"
   add_foreign_key "quotes", "models"
   add_foreign_key "quotes", "series"
+  add_foreign_key "quotes", "tire_replacement_fronts"
+  add_foreign_key "quotes", "tire_replacement_rears"
+  add_foreign_key "specific_equipments", "quotes"
 end

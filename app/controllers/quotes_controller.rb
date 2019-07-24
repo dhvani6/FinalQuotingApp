@@ -6,6 +6,17 @@ class QuotesController < ApplicationController
   def index
     @quotes = Quote.all
   end
+  def finalize
+    @quotes = Quote.all
+  end
+  def setminmarkup
+    @quotes = Quote.all
+  end
+
+  def set_minimum
+    @min = params[:minny]
+  end
+
 
   # GET /quotes/1
   # GET /quotes/1.json
@@ -69,6 +80,11 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:customer_id, :manufacturer_id, :series_id, :model_id, :specific_equipment_id, :base_quote_price, :total_price, :quote_date, :markup_percentage, :finalize_date, :sale_finalized)
+      params.require(:quote).permit(:customer_id, :manufacturer_id, :series_id, :model_id,
+                                    :specific_equipment_id, :tire_replacement_front_id,
+                                    :implement_id, :attachment_id, :tire_replacement_rear_id,
+                                    :base_quote_price, :total_price,
+                                    :quote_date, :markup_percentage, :finalize_date,
+                                    :sale_finalized)
     end
 end

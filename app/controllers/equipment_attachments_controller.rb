@@ -69,6 +69,6 @@ class EquipmentAttachmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_attachment_params
-      params.fetch(:equipment_attachment, {})
+      params.fetch(:equipment_attachment, :attachment_id, {})
     end
 end

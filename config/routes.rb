@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'Finalize Quote Sales', to: 'quotes#finalize', as: :finalize
+  get 'Margin Markup Management', to: 'quotes#setminmarkup', as: :markup
+
   resources :equipment_tires
   resources :equipment_implements
   resources :equipment_attachments
@@ -9,6 +12,12 @@ Rails.application.routes.draw do
   resources :attachments
   resources :implements
   resources :discounts
+
+  get '/quotes/set_minimum' => 'quotes#set_minimum'
+  resources :quotes
+  get '/quotes/finalize' => 'quotes#finalize'
+  resources :quotes
+  get '/quotes/setminmarkup' => 'quotes#setminmarkup'
   resources :quotes
   resources :price_histories
   resources :list_prices

@@ -1,3 +1,3 @@
 class SpecificEquipment < ApplicationRecord
-  has_many :quotes
+  belongs_to :quote
 end

@@ -69,6 +69,6 @@ class EquipmentTiresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_tire_params
-      params.fetch(:equipment_tire, {})
+      params.fetch(:equipment_tire, :tire_replacement_front_id, :tire_replacement_rear_id, {})
     end
 end

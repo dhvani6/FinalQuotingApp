@@ -30,10 +30,25 @@
     <strong>Model:</strong>
     <%= form.collection_select :model_id, Model.all,:id,:model_number %>
   </div>
+<%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
+  <div class="field">
+    <strong>(Optional) Attachment:</strong>
+    <%= form.collection_select :attachment_id, Attachment.all,:id, :attachment_feature %>
+  </div>
 
   <div class="field">
-    <strong>Serial Number:</strong>
-    <%= form.collection_select :specific_equipment_id, SpecificEquipment.all,:id,:serial_number %>
+    <strong>(Optional) Implement:</strong>
+    <%= form.collection_select :implement_id, Implement.all,:id, :implement_feature %>
+  </div>
+
+  <div class="field">
+    <strong>(Optional) Front Replacement Tires:</strong>
+    <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.all,:id, :order_number %>
+  </div>
+
+  <div class="field">
+    <strong>(Optional) Rear Replacement Tires:</strong>
+    <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.all,:id, :order_number %>
   </div>
 
 

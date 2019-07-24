@@ -69,6 +69,6 @@ class EquipmentImplementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_implement_params
-      params.fetch(:equipment_implement, {})
+      params.fetch(:equipment_implement, :implement_id, {})
     end
 end
