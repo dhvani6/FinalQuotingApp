@@ -26,6 +26,16 @@
     <%= form.collection_select :series_id, Series.all,:id,:series_number %>
   </div>
 
+  <div class="field">
+    <strong>Model:</strong>
+    <%= form.collection_select :model_id, Model.all,:id,:model_number %>
+  </div>
+
+  <div class="field">
+    <strong>Serial Number:</strong>
+    <%= form.collection_select :specific_equipment_id, SpecificEquipment.all,:id,:serial_number %>
+  </div>
+
 
   <div class="field">
     <strong>Base Quote Price:</strong>

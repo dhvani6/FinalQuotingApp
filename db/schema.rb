@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_013653) do
+ActiveRecord::Schema.define(version: 2019_07_24_032700) do
 
   create_table "attachments", force: :cascade do |t|
     t.varchar "attachment_feature", limit: 45, null: false
@@ -107,8 +107,12 @@ ActiveRecord::Schema.define(version: 2019_07_24_013653) do
     t.datetime "updated_at"
     t.bigint "customer_id"
     t.bigint "manufacturer_id"
+    t.bigint "series_id"
+    t.bigint "model_id"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
     t.index ["manufacturer_id"], name: "index_quotes_on_manufacturer_id"
+    t.index ["model_id"], name: "index_quotes_on_model_id"
+    t.index ["series_id"], name: "index_quotes_on_series_id"
   end
 
   create_table "samples", force: :cascade do |t|
@@ -154,4 +158,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_013653) do
   add_foreign_key "customers", "employees"
   add_foreign_key "quotes", "customers", name: "FK_Quote_Employee"
   add_foreign_key "quotes", "manufacturers"
+  add_foreign_key "quotes", "models"
+  add_foreign_key "quotes", "series"
 end
