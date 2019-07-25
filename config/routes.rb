@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+  root'home#index'
   get 'Finalize Quote Sales', to: 'quotes#finalize', as: :finalize
   get 'Margin Markup Management', to: 'quotes#setminmarkup', as: :markup
 

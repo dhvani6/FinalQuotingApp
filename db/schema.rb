@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_091335) do
+ActiveRecord::Schema.define(version: 2019_07_24_233452) do
 
   create_table "attachments", force: :cascade do |t|
     t.varchar "attachment_feature", limit: 45, null: false
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 2019_07_24_091335) do
     t.varchar "model_number", limit: 21, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "series_id"
+    t.index ["series_id"], name: "index_models_on_series_id"
   end
 
   create_table "price_histories", force: :cascade do |t|
@@ -110,7 +112,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_091335) do
     t.datetime "quote_date", null: false
     t.decimal "markup_percentage", precision: 4, scale: 2, null: false
     t.datetime "finalize_date"
-    t.boolean "sale_finalized", null: false
+    t.boolean "sale_finalized", default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.bigint "customer_id"
@@ -141,6 +143,8 @@ ActiveRecord::Schema.define(version: 2019_07_24_091335) do
     t.varchar "series_number", limit: 21, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "manufacturer_id"
+    t.index ["manufacturer_id"], name: "index_series_on_manufacturer_id"
   end
 
   create_table "specific_equipments", force: :cascade do |t|
@@ -178,6 +182,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_091335) do
   add_foreign_key "equipment_implements", "implements"
   add_foreign_key "equipment_tires", "tire_replacement_fronts"
   add_foreign_key "equipment_tires", "tire_replacement_rears"
+  add_foreign_key "models", "series"
   add_foreign_key "quotes", "attachments"
   add_foreign_key "quotes", "customers", name: "FK_Quote_Employee"
   add_foreign_key "quotes", "implements"
@@ -186,5 +191,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_091335) do
   add_foreign_key "quotes", "series"
   add_foreign_key "quotes", "tire_replacement_fronts"
   add_foreign_key "quotes", "tire_replacement_rears"
+  add_foreign_key "series", "manufacturers"
   add_foreign_key "specific_equipments", "quotes"
 end
