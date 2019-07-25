@@ -7,6 +7,9 @@ gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # gem 'listen', '~> 3.0'
 
 gem 'wdm', '>= 0.1.0'

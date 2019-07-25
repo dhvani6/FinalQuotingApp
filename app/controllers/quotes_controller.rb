@@ -17,6 +17,16 @@ class QuotesController < ApplicationController
     @min = params[:minny]
   end
 
+  def showModelsSold
+
+  end
+
+  def showAggregateQuotePrices
+
+  end
+
+  def showDate
+
 
   # GET /quotes/1
   # GET /quotes/1.json
