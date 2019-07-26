@@ -69,6 +69,6 @@ class ConfigurationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def configuration_params
-      params.require(:configuration).permit(:decimal)
+      params.require(:configuration).permit(:min_markup)
     end
 end

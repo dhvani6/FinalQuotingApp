@@ -14,7 +14,7 @@ class ConfigurationsTest < ApplicationSystemTestCase
     visit configurations_url
     click_on "New Configuration"
 
-    fill_in "Decimal", with: @configuration.decimal
+    fill_in "Min markup", with: @configuration.min_markup
     click_on "Create Configuration"
 
     assert_text "Configuration was successfully created"
@@ -25,7 +25,7 @@ class ConfigurationsTest < ApplicationSystemTestCase
     visit configurations_url
     click_on "Edit", match: :first
 
-    fill_in "Decimal", with: @configuration.decimal
+    fill_in "Min markup", with: @configuration.min_markup
     click_on "Update Configuration"
 
     assert_text "Configuration was successfully updated"

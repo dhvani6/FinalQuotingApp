@@ -17,7 +17,7 @@ class ConfigurationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create configuration" do
     assert_difference('Configuration.count') do
-      post configurations_url, params: { configuration: { decimal: @configuration.decimal } }
+      post configurations_url, params: { configuration: { min_markup: @configuration.min_markup } }
     end
 
     assert_redirected_to configuration_url(Configuration.last)
@@ -34,7 +34,7 @@ class ConfigurationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update configuration" do
-    patch configuration_url(@configuration), params: { configuration: { decimal: @configuration.decimal } }
+    patch configuration_url(@configuration), params: { configuration: { min_markup: @configuration.min_markup } }
     assert_redirected_to configuration_url(@configuration)
   end
 

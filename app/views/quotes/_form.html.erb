@@ -59,9 +59,9 @@
 
   <div class="field">
     <strong>Total Price:</strong>
-    <%= form.text_field :total_price, :readonly => true, :value => (:form.var => ) %>
+    <%= form.text_field :total_price, :readonly => true %>
   </div>
-
+  <% #:value => (:form.var => )%>
   <div class="field">
     <strong>Quote Date:</strong>
     <%= form.datetime_select :quote_date %>
