@@ -13,4 +13,6 @@ class Quote < ApplicationRecord
   belongs_to :attachment
   belongs_to :implement
   has_many :specific_equipments
+
+
 end

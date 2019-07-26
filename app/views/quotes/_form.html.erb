@@ -13,42 +13,42 @@
 
   <div class="field">
     <strong>Customer:</strong>
-    <%= form.collection_select :customer_id, Customer.all,:id,:customer_lname %>
+    <%= form.collection_select :customer_id, Customer.order(:customer_lname), :id, :customer_lname, include_blank: true  %>
   </div>
 
   <div class="field">
     <strong>Manufacturer:</strong>
-    <%= form.collection_select :manufacturer_id, Manufacturer.all,:id,:manufacturer_name %>
+    <%= form.collection_select :manufacturer_id, Manufacturer.order(:manufacturer_name),:id,:manufacturer_name, include_blank: true  %>
   </div>
 
   <div class="field">
     <strong>Series:</strong>
-    <%= form.collection_select :series_id, Series.all,:id,:series_number %>
+    <%= form.grouped_collection_select :series_id, Manufacturer.order(:manufacturer_name), :series, :manufacturer_name, :id, :series_number, include_blank: true %>
   </div>
 
   <div class="field">
     <strong>Model:</strong>
-    <%= form.collection_select :model_id, Model.all,:id,:model_number %>
+    <%= form.collection_select :model_id, Model.order(:model_number),:id,:model_number, include_blank: true  %>
   </div>
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
   <div class="field">
     <strong>(Optional) Attachment:</strong>
-    <%= form.collection_select :attachment_id, Attachment.all,:id, :attachment_feature %>
+    <%= form.collection_select :attachment_id, Attachment.order(:attachment_feature),:id, :attachment_feature, include_blank: true  %>
   </div>
 
   <div class="field">
     <strong>(Optional) Implement:</strong>
-    <%= form.collection_select :implement_id, Implement.all,:id, :implement_feature %>
+    <%= form.collection_select :implement_id, Implement.order(:implement_feature),:id, :implement_feature, include_blank: true  %>
   </div>
 
   <div class="field">
     <strong>(Optional) Front Replacement Tires:</strong>
-    <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.all,:id, :order_number %>
+    <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
   <div class="field">
     <strong>(Optional) Rear Replacement Tires:</strong>
-    <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.all,:id, :order_number %>
+    <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
 
@@ -77,10 +77,6 @@
     <%= form.datetime_select :finalize_date %>
   </div>
 
-  <div class="field">
-    <strong>Is the Sale Finalized?:</strong>
-    <%= form.check_box :sale_finalized %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
