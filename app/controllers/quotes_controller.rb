@@ -6,9 +6,11 @@ class QuotesController < ApplicationController
   def index
     @quotes = Quote.all
   end
+
   def finalize
     @quotes = Quote.all
   end
+
   def setminmarkup
     @quotes = Quote.all
   end
@@ -17,6 +19,17 @@ class QuotesController < ApplicationController
     @min = params[:minny]
   end
 
+  def showModelsSold
+#wicked_pdf gem usage here
+  end
+
+  def showAggregateQuotePrices
+
+  end
+
+  def showDate
+
+  end
 
   # GET /quotes/1
   # GET /quotes/1.json

@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_233452) do
+ActiveRecord::Schema.define(version: 2019_07_26_005615) do
 
   create_table "attachments", force: :cascade do |t|
     t.varchar "attachment_feature", limit: 45, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "configurations", force: :cascade do |t|
+    t.decimal "min_markup", precision: 18, scale: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -123,7 +129,9 @@ ActiveRecord::Schema.define(version: 2019_07_24_233452) do
     t.bigint "tire_replacement_rear_id"
     t.bigint "implement_id"
     t.bigint "attachment_id"
+    t.bigint "configuration_id"
     t.index ["attachment_id"], name: "index_quotes_on_attachment_id"
+    t.index ["configuration_id"], name: "index_quotes_on_configuration_id"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
     t.index ["implement_id"], name: "index_quotes_on_implement_id"
     t.index ["manufacturer_id"], name: "index_quotes_on_manufacturer_id"
@@ -184,6 +192,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_233452) do
   add_foreign_key "equipment_tires", "tire_replacement_rears"
   add_foreign_key "models", "series"
   add_foreign_key "quotes", "attachments"
+  add_foreign_key "quotes", "configurations"
   add_foreign_key "quotes", "customers", name: "FK_Quote_Employee"
   add_foreign_key "quotes", "implements"
   add_foreign_key "quotes", "manufacturers"

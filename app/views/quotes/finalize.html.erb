@@ -24,17 +24,22 @@
         <td><%= quote.quote_date %></td>
         <td><%= quote.finalize_date %></td>
         <td><%= quote.sale_finalized %></td>
-        <td><%= link_to 'Show', quote %></td>
-        <%= form_with(model: quote, local: true) do |form| %>
-          <div class="field">
-            <strong>Finalize Sale:</strong>
-            <%= form.check_box :sale_finalized %>
-          </div>
+        <td>
 
-          <div class="actions">
-            <%= form.submit %>
-          </div>
-        <% end %>
+          <%= form_with(model: quote, local: true) do |form| %>
+            <div class="field">
+              <strong>Finalize Sale:</strong>
+              <%= form.check_box :sale_finalized %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          <% end %>
+
+        </td>
+        <td><%= link_to 'Show', quote %></td>
+
       </tr>
     <% end %>
   </tbody>

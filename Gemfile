@@ -10,9 +10,12 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails-ujs', '~> 0.1.0'
 
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # gem 'listen', '~> 3.0'
 
-#gem 'wdm', '>= 0.1.0'
+gem 'wdm', '>= 0.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
