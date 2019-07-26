@@ -15,7 +15,13 @@ Rails.application.routes.draw do
   resources :implements
   resources :discounts
 
-  get '/quotes/set_minimum' => 'quotes#set_minimum'
+  resources :quotes do
+    collection do
+      get 'set_minimum'
+    end
+  end
+
+  get '/quotes/reports' => 'quotes#reports'
   resources :quotes
   get '/quotes/finalize' => 'quotes#finalize'
   resources :quotes
