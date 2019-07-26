@@ -54,12 +54,12 @@
 
   <div class="field">
     <strong>Base Quote Price:</strong>
-    <%= form.text_field :base_quote_price %>
+    <%= form.text_field :base_quote_price, :readonly => true,  %>
   </div>
 
   <div class="field">
     <strong>Total Price:</strong>
-    <%= form.text_field :total_price %>
+    <%= form.text_field :total_price, :readonly => true, :value => (:form.var => ) %>
   </div>
 
   <div class="field">
