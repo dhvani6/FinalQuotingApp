@@ -1,9 +1,7 @@
 
 <%= form_with(model: quote, local: true) do |form| %>
   <% if quote.errors.any? %>
-    <div id="error_explanation" xmlns:onchange="http://www.w3.org/1999/xhtml" xmlns:onchange="http://www.w3.org/1999/xhtml"
-         xmlns:onchange="http://www.w3.org/1999/xhtml" xmlns:onchange="http://www.w3.org/1999/xhtml"
-         xmlns:onchange="http://www.w3.org/1999/xhtml">
+    <div id="error_explanation">
       <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
 
       <ul>
@@ -14,46 +12,44 @@
     </div>
   <% end %>
 
-
-
   <div class="field">
     <strong>Customer:</strong>
-    <%= form.collection_select :customer_id, Customer.all,:id,:customer_lname %>
+    <%= form.collection_select :customer_id, Customer.order(:customer_lname), :id, :customer_lname, include_blank: true  %>
   </div>
 
   <div class="field">
     <strong>Manufacturer:</strong>
-    <%= form.collection_select :manufacturer_id, Manufacturer.all,:id,:manufacturer_name %>
+    <%= form.collection_select :manufacturer_id, Manufacturer.order(:manufacturer_name),:id,:manufacturer_name, include_blank: true  %>
   </div>
 
   <div class="field">
     <strong>Series:</strong>
-    <%= form.collection_select :series_id, Series.all, :id, :series_number %>
+    <%= form.grouped_collection_select :series_id, Manufacturer.order(:manufacturer_name), :series, :manufacturer_name, :id, :series_number, include_blank: true %>
   </div>
 
-  <div class="field">
+  <div class="field", onchange="psycho()">
     <strong>Model:</strong>
-    <%= form.collection_select :model_id, Model.all,:id,:model_number, onchange: 'psycho()', id: 'mod' %>
+    <%= form.collection_select :model_id, Model.order(:model_number),:id,:model_number, include_blank: true  %>
   </div>
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
-  <div class="field">
+  <div class="field", onchange="psycho()">
     <strong>(Optional) Attachment:</strong>
-    <%= form.collection_select :attachment_id, Attachment.all,:id, :attachment_feature, onchange: 'psycho()', id: 'att' %>
+    <%= form.collection_select :attachment_id, Attachment.order(:attachment_feature),:id, :attachment_feature, include_blank: true  %>
   </div>
 
-  <div class="field">
+  <div class="field", onchange="psycho()">
     <strong>(Optional) Implement:</strong>
-    <%= form.collection_select :implement_id, Implement.all,:id, :implement_feature, onchange: 'psycho()', id: 'imp' %>
+    <%= form.collection_select :implement_id, Implement.order(:implement_feature),:id, :implement_feature, include_blank: true  %>
   </div>
 
-  <div class="field">
+  <div class="field", onchange="psycho()">
     <strong>(Optional) Front Replacement Tires:</strong>
-    <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.all,:id, :order_number, onchange: 'psycho()', id: 'tiref' %>
+    <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
   <div class="field", onchange="psycho()">
     <strong>(Optional) Rear Replacement Tires:</strong>
-    <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.all,:id, :order_number, id: 'tirer' %>
+    <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
 
@@ -77,7 +73,11 @@
     <strong>Markup Percentage:</strong>
     <%= form.text_field :markup_percentage %>
   </div>
-<p id="bb"></p>
+
+  <div class="field">
+    <strong>Finalize Date:</strong>
+    <%= form.datetime_select :finalize_date %>
+  </div>
 
   <script>
       function psycho() {

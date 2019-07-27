@@ -16,4 +16,6 @@ class Quote < ApplicationRecord
   belongs_to :implement
   belongs_to :configuration
   has_many :specific_equipments
+
+
 end
