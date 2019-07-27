@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_005615) do
+ActiveRecord::Schema.define(version: 2019_07_27_071109) do
 
   create_table "attachments", force: :cascade do |t|
     t.varchar "attachment_feature", limit: 45, null: false
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(version: 2019_07_26_005615) do
     t.decimal "new_price", precision: 7, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "attachment_id"
+    t.bigint "Tire_Replacement_Front_id"
+    t.bigint "implement_id"
+    t.bigint "Tire_Replacement_Rear_id"
+    t.bigint "model_id"
+    t.index ["Tire_Replacement_Front_id"], name: "index_list_prices_on_Tire_Replacement_Front_id"
+    t.index ["Tire_Replacement_Rear_id"], name: "index_list_prices_on_Tire_Replacement_Rear_id"
+    t.index ["attachment_id"], name: "index_list_prices_on_attachment_id"
+    t.index ["implement_id"], name: "index_list_prices_on_implement_id"
+    t.index ["model_id"], name: "index_list_prices_on_model_id"
   end
 
   create_table "manufacturers", force: :cascade do |t|
@@ -190,6 +200,11 @@ ActiveRecord::Schema.define(version: 2019_07_26_005615) do
   add_foreign_key "equipment_implements", "implements"
   add_foreign_key "equipment_tires", "tire_replacement_fronts"
   add_foreign_key "equipment_tires", "tire_replacement_rears"
+  add_foreign_key "list_prices", "attachments"
+  add_foreign_key "list_prices", "implements"
+  add_foreign_key "list_prices", "models"
+  add_foreign_key "list_prices", "tire_replacement_fronts", column: "Tire_Replacement_Front_id"
+  add_foreign_key "list_prices", "tire_replacement_rears", column: "Tire_Replacement_Rear_id"
   add_foreign_key "models", "series"
   add_foreign_key "quotes", "attachments"
   add_foreign_key "quotes", "configurations"

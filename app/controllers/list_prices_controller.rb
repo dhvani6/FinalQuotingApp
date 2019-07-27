@@ -69,6 +69,8 @@ class ListPricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_price_params
-      params.require(:list_price).permit(:suggested_list_price, :price_change_date, :new_price)
+      params.require(:list_price).permit(:suggested_list_price, :price_change_date, :new_price,
+                                         :attachment_id, :implement_id, :tire_replacement_front_id,
+                                         :tire_replacement_rear_id, :model_id)
     end
 end

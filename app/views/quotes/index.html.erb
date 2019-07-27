@@ -7,8 +7,6 @@
   <thead>
     <tr>
       <th>Customer</th>
-      <th>Manufacturer</th>
-      <th>Series</th>
       <th>Model</th>
       <th>Base Quote Price</th>
       <th>Total Price</th>
@@ -24,8 +22,6 @@
     <% @quotes.each do |quote| %>
       <tr>
         <td><%= quote.customer.customer_fname %></td>
-        <td><%= quote.manufacturer_id %></td>
-        <td><%= quote.series %></td>
         <td><%= quote.model %></td>
         <td><%= quote.base_quote_price %></td>
         <td><%= quote.total_price %></td>

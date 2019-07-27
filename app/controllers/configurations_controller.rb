@@ -7,6 +7,12 @@ class ConfigurationsController < ApplicationController
     @configurations = Configuration.all
   end
 
+  #def setminmarkup @configuration.min_markup = end>
+
+  def getMinMarkup
+    
+  end
+
   # GET /configurations/1
   # GET /configurations/1.json
   def show

@@ -8,16 +8,10 @@ class QuotesController < ApplicationController
   end
 
   def finalize
-    @quotes = Quote.all
+
   end
 
-  def setminmarkup
-    @quotes = Quote.all
-  end
 
-  def set_minimum
-    @min = params[:minny]
-  end
 
   def showModelsSold
 #wicked_pdf gem usage here
@@ -27,7 +21,7 @@ class QuotesController < ApplicationController
 
   end
 
-  def showDate
+  def showQuotesPricesBasedDate
 
   end
 
@@ -93,7 +87,7 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:customer_id, :manufacturer_id, :series_id, :model_id,
+      params.require(:quote).permit(:configuration_id, :customer_id, :manufacturer_id, :series_id, :model_id,
                                     :specific_equipment_id, :tire_replacement_front_id,
                                     :implement_id, :attachment_id, :tire_replacement_rear_id,
                                     :base_quote_price, :total_price,

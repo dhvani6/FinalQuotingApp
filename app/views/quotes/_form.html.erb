@@ -1,6 +1,9 @@
+
 <%= form_with(model: quote, local: true) do |form| %>
   <% if quote.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" xmlns:onchange="http://www.w3.org/1999/xhtml" xmlns:onchange="http://www.w3.org/1999/xhtml"
+         xmlns:onchange="http://www.w3.org/1999/xhtml" xmlns:onchange="http://www.w3.org/1999/xhtml"
+         xmlns:onchange="http://www.w3.org/1999/xhtml">
       <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
 
       <ul>
@@ -10,6 +13,8 @@
       </ul>
     </div>
   <% end %>
+
+
 
   <div class="field">
     <strong>Customer:</strong>
@@ -28,33 +33,33 @@
 
   <div class="field">
     <strong>Model:</strong>
-    <%= form.collection_select :model_id, Model.all,:id,:model_number %>
+    <%= form.collection_select :model_id, Model.all,:id,:model_number, onchange: 'psycho()', id: 'mod' %>
   </div>
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
   <div class="field">
     <strong>(Optional) Attachment:</strong>
-    <%= form.collection_select :attachment_id, Attachment.all,:id, :attachment_feature %>
+    <%= form.collection_select :attachment_id, Attachment.all,:id, :attachment_feature, onchange: 'psycho()', id: 'att' %>
   </div>
 
   <div class="field">
     <strong>(Optional) Implement:</strong>
-    <%= form.collection_select :implement_id, Implement.all,:id, :implement_feature %>
+    <%= form.collection_select :implement_id, Implement.all,:id, :implement_feature, onchange: 'psycho()', id: 'imp' %>
   </div>
 
   <div class="field">
     <strong>(Optional) Front Replacement Tires:</strong>
-    <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.all,:id, :order_number %>
+    <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.all,:id, :order_number, onchange: 'psycho()', id: 'tiref' %>
   </div>
 
-  <div class="field">
+  <div class="field", onchange="psycho()">
     <strong>(Optional) Rear Replacement Tires:</strong>
-    <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.all,:id, :order_number %>
+    <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.all,:id, :order_number, id: 'tirer' %>
   </div>
 
 
-  <div class="field">
+  <div class="field", onmouseover="psycho()">
     <strong>Base Quote Price:</strong>
-    <%= form.text_field :base_quote_price, :readonly => true,  %>
+    <%= form.text_field :base_quote_price, :value => 0.00  %>
   </div>
 
   <div class="field">
@@ -62,6 +67,7 @@
     <%= form.text_field :total_price, :readonly => true %>
   </div>
   <% #:value => (:form.var => )%>
+
   <div class="field">
     <strong>Quote Date:</strong>
     <%= form.datetime_select :quote_date %>
@@ -71,16 +77,27 @@
     <strong>Markup Percentage:</strong>
     <%= form.text_field :markup_percentage %>
   </div>
+<p id="bb"></p>
 
-  <div class="field">
-    <strong>Finalize Date:</strong>
-    <%= form.datetime_select :finalize_date %>
-  </div>
+  <script>
+      function psycho() {
+          console.log("Called");
+          var nummie = document.forms[0]['quote_model_id'].value;
+          nummie += document.forms[0]['quote_attachment_id'].value;
+          nummie += document.forms[0]['quote_implement_id'].value;
+          nummie += document.forms[0]['quote_tire_replacement_front_id'].value;
+          nummie += document.forms[0]['quote_tire_replacement_rear_id'].value;
+          document.forms[0]['quote_base_quote_price'].value = nummie;
+          //document.getElementById('bb').innerHTML = document.forms[0]['quote_model_id'].value
+          //    + document.forms[0]['quote_attachment_id'].value +
+          //    document.forms[0]['quote_implement_id'].value +
+          //    document.forms[0]['quote_tire_replacement_front_id'].value
+          //    + document.forms[0]['quote_tire_replacement_rear_id'].selectedIndex.valueOf();
 
-  <div class="field">
-    <strong>Is the Sale Finalized?:</strong>
-    <%= form.check_box :sale_finalized %>
-  </div>
+          //price.options[price.selectedIndex].setAttribute("basePrice", (m.toString()));
+          //+ a + i + tf + tr
+      }
+  </script>
 
   <div class="actions">
     <%= form.submit %>
