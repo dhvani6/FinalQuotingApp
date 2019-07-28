@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   resources :configurations
   get 'home/index'
-  root'home#index'
   get 'Finalize Quote Sales', to: 'quotes#finalize', as: :finalize
   get 'Margin Markup Management', to: 'configurations#setminmarkup', as: :markup
   get 'Quote Reports', to: 'quotes#reports', as: :report
+
+  root to: 'quotes#index'
+  resources :quotes
+  resources :manufacturers, only: [] do
+    resources :series, only: :index
+  end
 
   resources :equipment_tires
   resources :equipment_implements
@@ -36,5 +41,6 @@ Rails.application.routes.draw do
   resources :models
   resources :specific_equipments
   resources :samples
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
