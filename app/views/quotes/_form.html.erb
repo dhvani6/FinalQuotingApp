@@ -28,7 +28,7 @@
   <div class="field">
     <strong>Series:</strong>
     <%= form.select :series_id,
-                    options_for_select(Series.select_values(quote.manufacturer), quote&.series&.id),
+                    options_for_select(Series.select_values(quote&.manufacturer), quote&.series&.id),
                     {},
                     {} %>
   </div>
