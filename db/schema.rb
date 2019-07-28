@@ -10,18 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_27_071109) do
+ActiveRecord::Schema.define(version: 2019_07_28_042439) do
 
   create_table "attachments", force: :cascade do |t|
     t.varchar "attachment_feature", limit: 45, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "configurations", force: :cascade do |t|
-    t.decimal "min_markup", precision: 18, scale: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -122,6 +116,18 @@ ActiveRecord::Schema.define(version: 2019_07_27_071109) do
     t.datetime "updated_at"
   end
 
+  create_table "quote_configs", force: :cascade do |t|
+    t.decimal "min_markup", precision: 18, scale: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quoteconfigs", force: :cascade do |t|
+    t.decimal "min_markup", precision: 18, scale: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "quotes", force: :cascade do |t|
     t.decimal "base_quote_price", precision: 7, scale: 2, null: false
     t.decimal "total_price", precision: 7, scale: 2
@@ -140,12 +146,18 @@ ActiveRecord::Schema.define(version: 2019_07_27_071109) do
     t.bigint "implement_id"
     t.bigint "attachment_id"
     t.bigint "configuration_id"
+    t.bigint "list_price_id"
+    t.bigint "quoteconfig_id"
+    t.bigint "quote_config_id"
     t.index ["attachment_id"], name: "index_quotes_on_attachment_id"
     t.index ["configuration_id"], name: "index_quotes_on_configuration_id"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
     t.index ["implement_id"], name: "index_quotes_on_implement_id"
+    t.index ["list_price_id"], name: "index_quotes_on_list_price_id"
     t.index ["manufacturer_id"], name: "index_quotes_on_manufacturer_id"
     t.index ["model_id"], name: "index_quotes_on_model_id"
+    t.index ["quote_config_id"], name: "index_quotes_on_quote_config_id"
+    t.index ["quoteconfig_id"], name: "index_quotes_on_quoteconfig_id"
     t.index ["series_id"], name: "index_quotes_on_series_id"
     t.index ["tire_replacement_front_id"], name: "index_quotes_on_tire_replacement_front_id"
     t.index ["tire_replacement_rear_id"], name: "index_quotes_on_tire_replacement_rear_id"
@@ -207,11 +219,13 @@ ActiveRecord::Schema.define(version: 2019_07_27_071109) do
   add_foreign_key "list_prices", "tire_replacement_rears", column: "Tire_Replacement_Rear_id"
   add_foreign_key "models", "series"
   add_foreign_key "quotes", "attachments"
-  add_foreign_key "quotes", "configurations"
   add_foreign_key "quotes", "customers", name: "FK_Quote_Employee"
   add_foreign_key "quotes", "implements"
+  add_foreign_key "quotes", "list_prices"
   add_foreign_key "quotes", "manufacturers"
   add_foreign_key "quotes", "models"
+  add_foreign_key "quotes", "quote_configs"
+  add_foreign_key "quotes", "quoteconfigs"
   add_foreign_key "quotes", "series"
   add_foreign_key "quotes", "tire_replacement_fronts"
   add_foreign_key "quotes", "tire_replacement_rears"

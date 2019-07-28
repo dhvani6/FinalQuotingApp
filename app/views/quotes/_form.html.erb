@@ -29,7 +29,7 @@
 
   <div class="field", onchange="psycho()">
     <strong>Model:</strong>
-    <%= form.collection_select :model_id, Model.order(:model_number),:id,:model_number, include_blank: true  %>
+    <%= form.collection_select :model_id, Model.order(:model_number),:id,:model_number, include_blank: true, name: 'mod'  %>
   </div>
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
   <div class="field", onchange="psycho()">
@@ -55,7 +55,7 @@
 
   <div class="field", onmouseover="psycho()">
     <strong>Base Quote Price:</strong>
-    <%= form.text_field :base_quote_price, :value => 0.00  %>
+    <%= form.text_field :base_quote_price, :value => 0.00, :readonly => true  %>
   </div>
 
   <div class="field">
@@ -75,19 +75,126 @@
   </div>
 
   <div class="field">
-    <strong>Finalize Date:</strong>
+    <strong>*Send to Customer for Approval First*Finalize Date:</strong>
     <%= form.datetime_select :finalize_date %>
   </div>
 
+  <div class="field">
+    <strong>Was payment received and the transaction finalized?</strong>
+    <%= form.check_box :sale_finalized %>
+  </div>
+
+
+  <%# fields_for :quote, @quote.model do |q_fields| %>
+    <%#Admin?  : <%= q_fields.text_field :model_number %>
+  <%# end %>
+
+<%#@quote.model_id. %>
   <script>
       function psycho() {
           console.log("Called");
-          var nummie = document.forms[0]['quote_model_id'].value;
-          nummie += document.forms[0]['quote_attachment_id'].value;
-          nummie += document.forms[0]['quote_implement_id'].value;
-          nummie += document.forms[0]['quote_tire_replacement_front_id'].value;
-          nummie += document.forms[0]['quote_tire_replacement_rear_id'].value;
+
+          //var nummie = (document.forms[0]['quote_suggested_list_price'].value)( (document.forms[0]['quote_model_id']) = () ).value;
+          //if(document.forms[0]['quote_model_id'].value = document.forms[0]['mod'])
+          var nummie = 0.00;
+          switch (document.forms[0]['quote_model_id'].value) {
+            case '1':
+                nummie += 5601;
+              break;
+            case '2':
+                nummie += 5118;
+              break;
+            case '3':
+                nummie += 4442;
+              break;
+            case '4':
+                nummie += 5976;
+              break;
+            case '5':
+                nummie += 6459;
+              break;
+              default:
+          }
+          switch (document.forms[0]['quote_attachment_id'].value) {
+              case '1':
+                  nummie += 26;
+                  break;
+              case '2':
+                  nummie += 0;
+                  break;
+              case '3':
+                  nummie += 0;
+                  break;
+              case '4':
+                  nummie += 0;
+                  break;
+              case '5':
+                  nummie += 0;
+                  break;
+          }
+
+          switch (document.forms[0]['quote_implement_id'].value) {
+              case '1':
+                  nummie += 0;
+                  break;
+              case '2':
+                  nummie += 0;
+                  break;
+              case '3':
+                  nummie += 0;
+                  break;
+              case '4':
+                  nummie += 0;
+                  break;
+              case '5':
+                  nummie += 0;
+                  break;
+          }
+
+          switch (document.forms[0]['quote_tire_replacement_front_id'].value) {
+              case '1':
+                  nummie += 0;
+                  break;
+              case '2':
+                  nummie += 0;
+                  break;
+              case '3':
+                  nummie += 0;
+                  break;
+              case '4':
+                  nummie += 0;
+                  break;
+              case '5':
+                  nummie += 0;
+                  break;
+          }
+
+          switch (document.forms[0]['quote_tire_replacement_rear_id'].value) {
+              case '1':
+                  nummie += 0;
+                  break;
+              case '2':
+                  nummie += 0;
+                  break;
+              case '3':
+                  nummie += 0;
+                  break;
+              case '4':
+                  nummie += 0;
+                  break;
+              case '5':
+                  nummie += 0;
+                  break;
+          }
+              //var nummie = ( (document.forms[0]['quote_model_id']) ).value;
+          //nummie += document.forms[0]['quote_attachment_id'].value;
+          //nummie += document.forms[0]['quote_implement_id'].value;
+          //nummie += document.forms[0]['quote_tire_replacement_front_id'].value;
+          //nummie += document.forms[0]['quote_tire_replacement_rear_id'].value;
           document.forms[0]['quote_base_quote_price'].value = nummie;
+          document.forms[0]['quote_total_price'].value = nummie;
+
+
           //document.getElementById('bb').innerHTML = document.forms[0]['quote_model_id'].value
           //    + document.forms[0]['quote_attachment_id'].value +
           //    document.forms[0]['quote_implement_id'].value +
