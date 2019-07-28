@@ -2,7 +2,7 @@ class Quote < ApplicationRecord
   validates :markup_percentage, presence: true, if: :above_minimum
 
   def above_minimum
-    markup_percentage >= QuoteConfigsController.getMin
+    #markup_percentage >= QuoteConfigsController.getMin
   end
 
   def getSuggestedLP(num)

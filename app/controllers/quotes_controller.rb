@@ -7,10 +7,6 @@ class QuotesController < ApplicationController
     @quotes = Quote.all
   end
 
-  def finalize
-
-  end
-
 
 
   def showModelsSold
