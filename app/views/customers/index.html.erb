@@ -39,4 +39,7 @@
 
 <br>
 
+
 <%= link_to 'New Customer', new_customer_path %>
+
+<%= will_paginate @customers, renderer: BootstrapPagination::Rails, previous_label: "Previuos", next_label: "Next", inner_window: 1, outer_window: 0; %>

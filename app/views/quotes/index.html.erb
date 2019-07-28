@@ -31,3 +31,4 @@
 <br>
 
 <%= link_to 'New Quote', new_quote_path %>
+<%= will_paginate @post, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_window: 1, outer_window: 0; %>
