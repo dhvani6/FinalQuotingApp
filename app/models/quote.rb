@@ -1,9 +1,9 @@
 class Quote < ApplicationRecord
-  validates :markup_percentage, presence: true, if: :above_minimum
+  validates :markup_percentage, presence: true
 
-  def above_minimum
+  /def above_minimum
     markup_percentage >= getMinMarkup
-  end
+  end /
 
 
 
