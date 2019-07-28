@@ -92,6 +92,6 @@ class QuotesController < ApplicationController
                                     :implement_id, :attachment_id, :tire_replacement_rear_id,
                                     :base_quote_price, :total_price,
                                     :quote_date, :markup_percentage, :finalize_date,
-                                    :sale_finalized, :list_price_id)
+                                    :sale_finalized)
     end
 end
