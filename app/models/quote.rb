@@ -1,13 +1,18 @@
 class Quote < ApplicationRecord
   validates :markup_percentage, presence: true
 
-  /def above_minimum
-    markup_percentage >= getMinMarkup
-  end /
+ / def above_minimum
+    markup_percentage >= QuoteConfigsController.getMin
+  end/
 
+  def getSuggestedLP(num)
+    #statement = "Select suggested_list_price from list_prices where model_id = num"
+    #records_array = ActiveRecord::Base.connection.execute(statement)
+  end
 
 
   belongs_to :customer
+  / belongs_to :list_price /
   belongs_to :manufacturer
   belongs_to :series
   belongs_to :model
@@ -15,7 +20,7 @@ class Quote < ApplicationRecord
   belongs_to :tire_replacement_rear
   belongs_to :attachment
   belongs_to :implement
-  belongs_to :configuration
+  / belongs_to :quote_config /
   has_many :specific_equipments
 
 

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :quote_configs
   resources :configurations
   get 'home/index'
-  get 'Finalize Quote Sales', to: 'quotes#finalize', as: :finalize
-  get 'Margin Markup Management', to: 'configurations#setminmarkup', as: :markup
+  root'home#index'
+  get 'Margin Markup Management', to: 'quote_configs#index'
   get 'Quote Reports', to: 'quotes#reports', as: :report
 
   root to: 'quotes#index'
@@ -22,18 +23,11 @@ Rails.application.routes.draw do
   resources :implements
   resources :discounts
 
-  resources :configurations do
-    collection do
-      get 'set_minimum'
-    end
-  end
+
 
   get '/quotes/reports' => 'quotes#reports'
   resources :quotes
-  get '/quotes/finalize' => 'quotes#finalize'
-  resources :quotes
-  get '/quotes/setminmarkup' => 'quotes#setminmarkup'
-  resources :quotes
+
   resources :price_histories
   resources :list_prices
   resources :manufacturers
@@ -41,6 +35,5 @@ Rails.application.routes.draw do
   resources :models
   resources :specific_equipments
   resources :samples
- # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
