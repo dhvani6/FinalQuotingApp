@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  <div class="submission-form">
 
   <div class="field">
     <strong>Employee:</strong>
@@ -51,7 +52,9 @@
     <%= form.text_field :customer_zip %>
   </div>
 
-  <div class="actions">
+  <div class="actions" id="submit-btn">
     <%= form.submit %>
+  </div>
+
   </div>
 <% end %>

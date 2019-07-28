@@ -2,7 +2,7 @@
 
 <h1>Quotes</h1>
 
-<%= link_to 'New Quote', new_quote_path %>
+<h3><%= link_to 'New Quote', new_quote_path %></h3>
 
 <table>
   <thead>
@@ -30,5 +30,5 @@
 
 <br>
 
-<%= link_to 'New Quote', new_quote_path %>
+<h3><%= link_to 'New Quote', new_quote_path %></h3>
 <%= will_paginate @post, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_window: 1, outer_window: 0; %>
