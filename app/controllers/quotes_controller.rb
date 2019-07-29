@@ -15,17 +15,7 @@ class QuotesController < ApplicationController
 
 
 
-  def showModelsSold
-#wicked_pdf gem usage here
-  end
 
-  def showAggregateQuotePrices
-
-  end
-
-  def showQuotesPricesBasedDate
-
-  end
 
   # GET /quotes/1
   # GET /quotes/1.json
@@ -45,8 +35,7 @@ class QuotesController < ApplicationController
   # GET /quotes/new
   def new
     @quote = Quote.new
-
-      end
+  end
 
   # GET /quotes/1/edit
   def edit
@@ -67,6 +56,8 @@ class QuotesController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /quotes/1
   # PATCH/PUT /quotes/1.json
