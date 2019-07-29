@@ -86,7 +86,7 @@
 
   <div class="field", onchange="psycho()">
     <strong>Discount:</strong>
-    <%= form.collection_select :discount_percentage, Discount.all, :id, :discount_percentage, include_blank: true, name: 'diss'  %>
+    <%= form.collection_select :discount_percentage, Discount.all, :discount_percentage, :description, include_blank: true, name: 'diss'  %>
   </div>
 
   <div class="field">
@@ -335,7 +335,7 @@
 
           switch (document.forms[0]['quote_tire_replacement_front_id'].value) {
               case '1':
-                  nummie += 0;
+                  nummie += 150;
                   break;
               default:
           }
@@ -345,7 +345,7 @@
                   nummie += 144;
                   break;
               case '2':
-                  nummie += 0;
+                  nummie += 135;
                   break;
           }
               //var nummie = ( (document.forms[0]['quote_model_id']) ).value;
@@ -364,7 +364,7 @@
               case '':
                   break;
               default:
-                  nummie *= (1 - (document.forms[0]['quote_discount_percentage'].value * .01))
+                  nummie = [1 - [(document.forms[0]['quote_discount_percentage'].value) * .01]] * nummie
           }
 
           document.forms[0]['quote_total_price'].value = nummie;
