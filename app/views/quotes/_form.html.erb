@@ -19,13 +19,21 @@
 
   <div class="field">
     <strong>Manufacturer:</strong>
-    <%= form.collection_select :manufacturer_id, Manufacturer.order(:manufacturer_name),:id,:manufacturer_name, include_blank: true  %>
+    <%= form.select :manufacturer_id,
+                    options_for_select(Manufacturer.select_values, quote&.manufacturer&.id),
+                    { include_blank: true },
+                    { class: 'remote-select', data: { target: '#quote_series_id' }} %>
   </div>
 
   <div class="field">
     <strong>Series:</strong>
-    <%= form.grouped_collection_select :series_id, Manufacturer.order(:manufacturer_name), :series, :manufacturer_name, :id, :series_number, include_blank: true %>
+    <%= form.select :series_id,
+                    options_for_select(Series.select_values(quote.manufacturer), quote&.series&.id),
+                    {},
+                    {} %>
   </div>
+
+
 
   <div class="field", onchange="psycho()">
     <strong>Model:</strong>
