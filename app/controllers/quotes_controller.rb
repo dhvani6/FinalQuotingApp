@@ -5,6 +5,12 @@ class QuotesController < ApplicationController
   # GET /quotes.json
   def index
     @quotes = Quote.all.order("created_at DESC").paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.csv {render plain: @quotes.to_csv }
+     # format.pdf {send_data @quotes.to_csv(col_sep: "\t") }
+
+    end
   end
 
 

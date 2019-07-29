@@ -3,6 +3,16 @@ class Quote < ApplicationRecord
   validates_numericality_of :markup_percentage, :greater_than => 15, :less_than => 100
   validates :manufacturer_id, presence: false
 
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names #over here you can have certain column names
+      all.each do |quote|
+        csv  << quote.attributes.values_at(*column_names)
+      end
+
+    end
+
+  end
 
   def getSuggestedLP(num)
     #statement = "Select suggested_list_price from list_prices where model_id = num"
