@@ -2,7 +2,7 @@
 
 <p>
   <strong>Customer:</strong>
-  <%= @quote.customer.customer_lname %>
+  <%= @quote.customer_id %>
 </p>
 
 <p>
@@ -18,6 +18,25 @@
 <p>
   <strong>Model:</strong>
   <%= @quote.model_id %>
+</p>
+
+<p>
+  <strong>Quoted Attachment:</strong>
+  <%= @quote.attachment_id %>
+</p>
+
+<p>
+  <strong>Quoted Implement:</strong>
+  <%= @quote.implement_id %>
+</p>
+<p>
+  <strong>Quoted Front Tire replacements:</strong>
+  <%= @quote.tire_replacement_front_id %>
+</p>
+
+<p>
+  <strong>Quoted Rear Tire replacement:</strong>
+  <%= @quote.tire_replacement_rear_id %>
 </p>
 
 <p>
@@ -38,6 +57,11 @@
 <p>
   <strong>Markup Percentage:</strong>
   <%= @quote.markup_percentage %>
+</p>
+
+<p>
+  <strong>Discount Given:</strong>
+  <%= @quote.discount_percentage %>
 </p>
 
 <p>
