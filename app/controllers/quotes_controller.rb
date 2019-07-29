@@ -82,6 +82,7 @@ class QuotesController < ApplicationController
     end
   end
 
+
   # DELETE /quotes/1
   # DELETE /quotes/1.json
   def destroy
