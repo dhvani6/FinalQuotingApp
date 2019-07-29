@@ -1,4 +1,5 @@
 class Model < ApplicationRecord
   has_many :quotes
-  has_many :series
+  belongs_to :series
+
 end

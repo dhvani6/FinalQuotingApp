@@ -14,33 +14,33 @@
 
   <div class="submission-quote">
 
-  <div class="field">
+  <div class="field", onchange="validation()">
     <strong>Customer:</strong>
     <%= form.collection_select :customer_id, Customer.order(:customer_lname), :id, :customer_lname, include_blank: true  %>
   </div>
 
-  <div class="field">
-    <strong>Manufacturer:</strong>
-    <%= form.select :manufacturer_id,
-                    options_for_select(Manufacturer.select_values, quote&.manufacturer&.id),
-                    { include_blank: true },
-                    { class: 'remote-select', data: { target: '#quote_series_id' }} %>
-  </div>
+    <div class="field">
+      <strong>Manufacturer:</strong>
+      <%= form.select :manufacturer_id,
+                      options_for_select(Manufacturer.select_values, quote.try(:manufacturer).try(:id)),
+                      { include_blank: true },
+                      { class: 'remote-select', data: { target: '#quote_series_id' }} %>
+    </div>
 
-  <div class="field">
-    <strong>Series:</strong>
-    <%= form.select :series_id,
-                    options_for_select(Series.select_values(quote&.manufacturer), quote&.series&.id),
-                    {},
-                    {} %>
-  </div>
+    <div class="field">
+      <strong>Series:</strong>
+      <%= form.select :series_id,
+                      options_for_select(Series.select_values(quote.try(:manufacturer)), quote.try(:series).try(:id)),
+                      {},
+                      {} %>
+    </div>
+
+    <div class="field", onchange="psycho()">
+      <strong> Model:</strong>
+      <%= form.collection_select :model_id, Model.order(:model_number),:id, :model_number, include_blank: true  %>
+    </div>
 
 
-
-  <div class="field", onchange="psycho()">
-    <strong>Model:</strong>
-    <%= form.collection_select :model_id, Model.all,:id,:model_number, include_blank: true, name: 'mod'  %>
-  </div>
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
   <div class="field", onchange="psycho()">
     <strong> Attachment (Optional):</strong>
@@ -108,6 +108,22 @@
 
 <%#@quote.model_id. %>
   <script>
+    function validation() {
+        console.log("Validation");
+        if (document.forms[0]['quote_manufacturer_id'].value = 'Kubota') {
+            select(document.forms[0]['quote_series_id'].value = 'Z100')
+        }
+
+
+    }
+
+
+
+
+
+
+
+
       function psycho() {
           console.log("Called");
 

@@ -4,10 +4,8 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Series.all
-
     manufacturer = Manufacturer.includes(:series).find(params[:manufacturer_id])
-    render json: manufacturer.series.select(:series_number, :id).map { |series| { id: series.id, series_number: series.series_number }}
+    render json: manufacturer.series.select(:series_number, :id).map { |series| { id: series.id, name: series.series_number }}
   end
 
   # GET /series/1

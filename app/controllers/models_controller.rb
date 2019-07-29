@@ -4,7 +4,6 @@ class ModelsController < ApplicationController
   # GET /models
   # GET /models.json
   def index
-    @models = Model.all
   end
 
   # GET /models/1
