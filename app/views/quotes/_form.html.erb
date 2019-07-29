@@ -86,7 +86,7 @@
 
   <div class="field", onchange="psycho()">
     <strong>Discount:</strong>
-    <%= form.collection_select :discount_percentage, Discount.all, :id, :description, include_blank: true, name: 'diss'  %>
+    <%= form.collection_select :discount_percentage, Discount.all, :discount_percentage, :description, include_blank: true, name: 'diss'  %>
   </div>
 
   <div class="field">
@@ -364,7 +364,7 @@
               case '':
                   break;
               default:
-                  nummie = [1 - [(document.forms[0]['quote_discount_percentage'].value)]] * nummie
+                  nummie = [1 - [(document.forms[0]['quote_discount_percentage'].value) * .01]] * nummie
           }
 
           document.forms[0]['quote_total_price'].value = nummie;
