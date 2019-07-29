@@ -9,7 +9,8 @@ gem 'activerecord-sqlserver-adapter'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails-ujs', '~> 0.1.0'
 
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.7'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 

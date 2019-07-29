@@ -1,21 +1,22 @@
-<div id="header">
- <h4> Menu </h4>
- <%= link_to 'Home Page', root_path %>
-  <%= link_to 'Customer Information Form', customers_path %>
-  <%= link_to 'Quoting Form', quotes_path %>
-  <%= link_to 'Quote Reports', report_path %>
+<div id="menu">
+  <h1>Rapid Tractor Quoting Application</h1>
+  <ul>
+    <li><%= link_to 'Home Page', root_path %></li>
+    <li><%= link_to 'Customer Information Form', customers_path %></li>
+    <li><%= link_to 'Quoting Form', quotes_path %></li>
+    <li><%= link_to 'Quote Reports', report_path %></li>
+  </ul>
 </div>
 
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CBApplication</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'application', media: 'all' , 'data-turbolinks' => true%>
+    <%= javascript_include_tag 'application'  , 'data-turbolinks' => true%>
   </head>
 
   <body>

@@ -47,7 +47,7 @@
 
 <p>
   <strong>Is the Sale Finalized?:</strong>
-  <%= @quote.sale_finalized %>
+  <%= @quote.sale_finalized? ? 'Yes' : 'No' %>
 </p>
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |

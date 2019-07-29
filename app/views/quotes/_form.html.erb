@@ -12,6 +12,8 @@
     </div>
   <% end %>
 
+  <div class="submission-quote">
+
   <div class="field">
     <strong>Customer:</strong>
     <%= form.collection_select :customer_id, Customer.order(:customer_lname), :id, :customer_lname, include_blank: true  %>
@@ -28,7 +30,7 @@
   <div class="field">
     <strong>Series:</strong>
     <%= form.select :series_id,
-                    options_for_select(Series.select_values(quote.manufacturer), quote&.series&.id),
+                    options_for_select(Series.select_values(quote&.manufacturer), quote&.series&.id),
                     {},
                     {} %>
   </div>
@@ -41,22 +43,22 @@
   </div>
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
   <div class="field", onchange="psycho()">
-    <strong>(Optional) Attachment:</strong>
+    <strong> Attachment (Optional):</strong>
     <%= form.collection_select :attachment_id, Attachment.order(:attachment_feature),:id, :attachment_feature, include_blank: true  %>
   </div>
 
   <div class="field", onchange="psycho()">
-    <strong>(Optional) Implement:</strong>
+    <strong>Implement (Optional):</strong>
     <%= form.collection_select :implement_id, Implement.order(:implement_feature),:id, :implement_feature, include_blank: true  %>
   </div>
 
   <div class="field", onchange="psycho()">
-    <strong>(Optional) Front Replacement Tires:</strong>
+    <strong>Front Replacement Tires (Optional):</strong>
     <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
   <div class="field", onchange="psycho()">
-    <strong>(Optional) Rear Replacement Tires:</strong>
+    <strong>Rear Replacement Tires (Optional):</strong>
     <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
@@ -96,6 +98,8 @@
     <strong>Was payment received and the transaction finalized?</strong>
     <%= form.check_box :sale_finalized %>
   </div>
+
+
 
 
   <%# fields_for :quote, @quote.model do |q_fields| %>
@@ -377,7 +381,9 @@
       }
   </script>
 
-  <div class="actions">
+  <div class="actions" id="quote-submit">
     <%= form.submit %>
+  </div>
+
   </div>
 <% end %>
