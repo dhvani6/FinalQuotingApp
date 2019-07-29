@@ -1,14 +1,7 @@
 class Quote < ApplicationRecord
   validates :markup_percentage, presence: true
+  validates_numericality_of :markup_percentage, :greater_than => 15, :less_than => 100
 
-  def above_minimum
-    markup_percentage >= QuoteConfigsController.getMin
-  end
-
-  def getSuggestedLP(num)
-    #statement = "Select suggested_list_price from list_prices where model_id = num"
-    #records_array = ActiveRecord::Base.connection.execute(statement)
-  end
 
 
   belongs_to :customer

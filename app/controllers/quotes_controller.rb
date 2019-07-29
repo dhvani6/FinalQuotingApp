@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all.order("created_at DESC").paginate(page: params[:page], per_page: 10)
+    @quotes = Quote.all
   end
 
   def finalize
