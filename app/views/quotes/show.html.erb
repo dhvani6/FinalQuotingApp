@@ -52,3 +52,5 @@
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>
+<p><%= link_to "Quote Report", quote_path(@quote, format: "pdf") %> </p>
+

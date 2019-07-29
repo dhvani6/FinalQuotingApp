@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.5'
+ruby '2.4.2'
 
 gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter'
@@ -14,9 +14,11 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem 'prawn'
+
 # gem 'listen', '~> 3.0'
 
-# gem 'wdm', '>= 0.1.0'
+gem 'wdm', '>= 0.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record

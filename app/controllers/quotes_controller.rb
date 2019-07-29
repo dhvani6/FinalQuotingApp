@@ -24,12 +24,23 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    @quote = Quote.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = QuotePdf.new(@quote)
+        send_data pdf.render, filename: "quote_#{@quote.quote_date}.pdf",
+                  type: "application/pdf", disposition: "inline"
+      end
+    end
+    end
   end
 
   # GET /quotes/new
   def new
     @quote = Quote.new
-  end
+
+      end
 
   # GET /quotes/1/edit
   def edit
@@ -88,6 +99,6 @@ class QuotesController < ApplicationController
                                     :implement_id, :attachment_id, :tire_replacement_rear_id,
                                     :base_quote_price, :total_price,
                                     :quote_date, :markup_percentage, :finalize_date,
-                                    :sale_finalized, :discount_id)
+                                    :sale_finalized, :discount_id, :quote_config_id)
     end
-end
+
