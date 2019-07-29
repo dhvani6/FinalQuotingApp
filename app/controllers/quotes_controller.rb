@@ -7,10 +7,6 @@ class QuotesController < ApplicationController
     @quotes = Quote.all
   end
 
-  def finalize
-
-  end
-
 
 
   def showModelsSold
@@ -92,6 +88,6 @@ class QuotesController < ApplicationController
                                     :implement_id, :attachment_id, :tire_replacement_rear_id,
                                     :base_quote_price, :total_price,
                                     :quote_date, :markup_percentage, :finalize_date,
-                                    :sale_finalized)
+                                    :sale_finalized, :discount_id)
     end
 end

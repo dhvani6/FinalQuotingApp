@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :quote_configs
-  resources :configurations
   get 'home/index'
   root'home#index'
   get 'Margin Markup Management', to: 'quote_configs#index'

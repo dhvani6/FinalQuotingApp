@@ -39,7 +39,7 @@
 
   <div class="field", onchange="psycho()">
     <strong>Model:</strong>
-    <%= form.collection_select :model_id, Model.order(:model_number),:id,:model_number, include_blank: true, name: 'mod'  %>
+    <%= form.collection_select :model_id, Model.all,:id,:model_number, include_blank: true, name: 'mod'  %>
   </div>
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
   <div class="field", onchange="psycho()">
@@ -79,13 +79,18 @@
     <%= form.datetime_select :quote_date %>
   </div>
 
-  <div class="field">
+  <div class="field", onchange="psycho()">
     <strong>Markup Percentage:</strong>
-    <%= form.text_field :markup_percentage %>
+    <%= form.text_field :markup_percentage, :value => 0.00 %>
+  </div>
+
+  <div class="field", onchange="psycho()">
+    <strong>Discount:</strong>
+    <%= form.collection_select :discount_percentage, Discount.all, :id, :discount_percentage, include_blank: true, name: 'diss'  %>
   </div>
 
   <div class="field">
-    <strong>*Send to Customer for Approval First*Finalize Date:</strong>
+    <strong>(Send to Customer for Approval First) Finalize Date:</strong>
     <%= form.datetime_select :finalize_date %>
   </div>
 
@@ -125,6 +130,171 @@
             case '5':
                 nummie += 6459;
               break;
+              case '6':
+                  nummie += 9000;
+                  break;
+              case '7':
+                  nummie += 12000;
+                  break;
+              case '8':
+                  nummie += 14000;
+                  break;
+              case '9':
+                  nummie += 21000;
+                  break;
+              case '10':
+                  nummie += 28000;
+                  break;
+              case '11':
+                  nummie += 28000;
+                  break;
+              case '12':
+                  nummie += 23000;
+                  break;
+              case '14':
+                  nummie += 15000;
+                  break;
+              case '15':
+                  nummie += 21000;
+                  break;
+              case '16':
+                  nummie += 22000;
+                  break;
+              case '17':
+                  nummie += 38000;
+                  break;
+              case '18':
+                  nummie += 31000;
+                  break;
+              case '19':
+                  nummie += 23000;
+                  break;
+              case '20':
+                  nummie += 20000;
+                  break;
+              case '21':
+                  nummie += 29000;
+                  break;
+              case '22':
+                  nummie += 32000;
+                  break;
+              case '23':
+                  nummie += 35000;
+                  break;
+              case '24':
+                  nummie += 43000;
+                  break;
+              case '25':
+                  nummie += 45000;
+                  break;
+              case '26':
+                  nummie += 46000;
+                  break;
+              case '27':
+                  nummie += 36000;
+                  break;
+              case '28':
+                  nummie += 26000;
+                  break;
+              case '29':
+                  nummie += 50000;
+                  break;
+              case '30':
+                  nummie += 40000;
+                  break;
+              case '31':
+                  nummie += 55000;
+                  break;
+              case '32':
+                  nummie += 60000;
+                  break;
+              case '33':
+                  nummie += 34000;
+                  break;
+              case '34':
+                  nummie += 70000;
+                  break;
+              case '35':
+                  nummie += 75000;
+                  break;
+              case '36':
+                  nummie += 27000;
+                  break;
+              case '37':
+                  nummie += 48000;
+                  break;
+              case '38':
+                  nummie += 31000;
+                  break;
+              case '39':
+                  nummie += 20000;
+                  break;
+              case '40':
+                  nummie += 23000;
+                  break;
+              case '41':
+                  nummie += 27000;
+                  break;
+              case '42':
+                  nummie += 28000;
+                  break;
+              case '43':
+                  nummie += 29000;
+                  break;
+              case '44':
+                  nummie += 20000;
+                  break;
+              case '45':
+                  nummie += 24000;
+                  break;
+              case '46':
+                  nummie += 30000;
+                  break;
+              case '47':
+                  nummie += 24000;
+                  break;
+              case '48':
+                  nummie += 35000;
+                  break;
+              case '49':
+                  nummie += 50000;
+                  break;
+              case '50':
+                  nummie += 53000;
+                  break;
+              case '51':
+                  nummie += 66000;
+                  break;
+              case '52':
+                  nummie += 75000;
+                  break;
+              case '53':
+                  nummie += 71000;
+                  break;
+              case '54':
+                  nummie += 61000;
+                  break;
+              case '55':
+                  nummie += 59000;
+                  break;
+              case '56':
+                  nummie += 62000;
+                  break;
+              case '57':
+                  nummie += 47000;
+                  break;
+              case '58':
+                  nummie += 45000;
+                  break;
+              case '59':
+                  nummie += 70000;
+                  break;
+              case '60':
+                  nummie += 65000;
+                  break;
+              case '61':
+                  nummie += 95000;
+                  break;
               default:
           }
           switch (document.forms[0]['quote_attachment_id'].value) {
@@ -132,34 +302,34 @@
                   nummie += 26;
                   break;
               case '2':
-                  nummie += 0;
+                  nummie += 116.25;
                   break;
               case '3':
-                  nummie += 0;
+                  nummie += 199.99;
                   break;
               case '4':
-                  nummie += 0;
+                  nummie += 25;
                   break;
               case '5':
-                  nummie += 0;
+                  nummie += 149;
                   break;
           }
 
           switch (document.forms[0]['quote_implement_id'].value) {
               case '1':
-                  nummie += 0;
+                  nummie += 789;
                   break;
               case '2':
-                  nummie += 0;
+                  nummie += 589;
                   break;
               case '3':
-                  nummie += 0;
+                  nummie += 379.99;
                   break;
               case '4':
-                  nummie += 0;
+                  nummie += 39.99;
                   break;
               case '5':
-                  nummie += 0;
+                  nummie += 659.99;
                   break;
           }
 
@@ -167,34 +337,14 @@
               case '1':
                   nummie += 0;
                   break;
-              case '2':
-                  nummie += 0;
-                  break;
-              case '3':
-                  nummie += 0;
-                  break;
-              case '4':
-                  nummie += 0;
-                  break;
-              case '5':
-                  nummie += 0;
-                  break;
+              default:
           }
 
           switch (document.forms[0]['quote_tire_replacement_rear_id'].value) {
               case '1':
-                  nummie += 0;
+                  nummie += 144;
                   break;
               case '2':
-                  nummie += 0;
-                  break;
-              case '3':
-                  nummie += 0;
-                  break;
-              case '4':
-                  nummie += 0;
-                  break;
-              case '5':
                   nummie += 0;
                   break;
           }
@@ -204,6 +354,19 @@
           //nummie += document.forms[0]['quote_tire_replacement_front_id'].value;
           //nummie += document.forms[0]['quote_tire_replacement_rear_id'].value;
           document.forms[0]['quote_base_quote_price'].value = nummie;
+          if(document.forms[0]['quote_markup_percentage'].value != '') {
+              nummie *= (1 + (document.forms[0]['quote_markup_percentage'].value * .01))
+
+          }
+          switch(document.forms[0]['quote_discount_percentage'].value){
+              case 0:
+                  break;
+              case '':
+                  break;
+              default:
+                  nummie *= (1 - (document.forms[0]['quote_discount_percentage'].value * .01))
+          }
+
           document.forms[0]['quote_total_price'].value = nummie;
 
 
