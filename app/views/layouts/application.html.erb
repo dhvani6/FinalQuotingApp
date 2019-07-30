@@ -1,6 +1,6 @@
-<div id="menu">
+<div>
   <h1>Rapid Tractor Quoting Application</h1>
-  <ul>
+  <ul id ="menu1">
     <li><%= link_to 'Home Page', root_path %></li>
     <li><%= link_to 'Customer Information Form', customers_path %></li>
     <li><%= link_to 'Quoting Form', quotes_path %></li>
@@ -15,8 +15,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application'%>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks' => true%>
   </head>
 
   <body>

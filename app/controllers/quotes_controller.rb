@@ -4,18 +4,27 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all.order("created_at DESC").paginate(page: params[:page], per_page: 10)
+    @quotes = Quote.all
     respond_to do |format|
       format.html
-      format.csv {render plain: @quotes.to_csv }
-     # format.pdf {send_data @quotes.to_csv(col_sep: "\t") }
-
+      format.csv {render plain: @quotes.to_csv}
+      # format.pdf {send_data @quotes.to_csv (col_sep "\t")}
     end
   end
 
 
 
+  def showModelsSold
+#wicked_pdf gem usage here
+  end
 
+  def showAggregateQuotePrices
+
+  end
+
+  def showQuotesPricesBasedDate
+
+  end
 
   # GET /quotes/1
   # GET /quotes/1.json
@@ -25,10 +34,9 @@ class QuotesController < ApplicationController
       format.html
       format.pdf do
         pdf = QuotePdf.new(@quote)
-        send_data pdf.render, filename: "quote_#{@quote.quote_date}.pdf",
-                  type: "application/pdf", disposition: "inline"
+        send_data pdf.render, filename: "quote_#(@quote.quote_date).pdf",
+                  type: "application/pdf",  disposition: "inline"
       end
-    end
     end
   end
 
@@ -57,8 +65,6 @@ class QuotesController < ApplicationController
     end
   end
 
-
-
   # PATCH/PUT /quotes/1
   # PATCH/PUT /quotes/1.json
   def update
@@ -73,7 +79,6 @@ class QuotesController < ApplicationController
     end
   end
 
-
   # DELETE /quotes/1
   # DELETE /quotes/1.json
   def destroy
@@ -85,18 +90,24 @@ class QuotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_quote
-      @quote = Quote.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_quote
+    @quote = Quote.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def quote_params
-      params.require(:quote).permit(:quote_config_id, :customer_id, :manufacturer_id, :series_id, :model_id,
-                                    :specific_equipment_id, :tire_replacement_front_id,
-                                    :implement_id, :attachment_id, :tire_replacement_rear_id,
-                                    :base_quote_price, :total_price,
-                                    :quote_date, :markup_percentage, :finalize_date,
-                                    :sale_finalized, :discount_id, :quote_config_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def quote_params
+    params.require(:quote).permit(:quote_config_id, :customer_id, :manufacturer_id, :series_id, :model_id,
+                                  :specific_equipment_id, :tire_replacement_front_id,
+                                  :implement_id, :attachment_id, :tire_replacement_rear_id,
+                                  :base_quote_price, :total_price,
+                                  :quote_date, :markup_percentage, :finalize_date,
+                                  :sale_finalized, :discount_id)
+  end
+end
+
+
+
+
+
 

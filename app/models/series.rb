@@ -1,7 +1,7 @@
 class Series < ApplicationRecord
   has_many :quotes
   belongs_to :manufacturer
-  belongs_to :model
+  has_many :model
 
   def self.select_values(manufacturer)
     return [] unless manufacturer

@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all.order("created_at DESC").paginate(page: params[:page], per_page: 10)
+    @customers = Customer.all.order(:customer_lname).page(params[:page])
   end
 
   # GET /customers/1
@@ -69,7 +69,7 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:employee_id, :customer_fname, :customer_lname, :customer_phone,
+      params.require(:customer).permit(:employee_id, :employee_lname, :customer_fname, :customer_lname, :customer_phone,
                                        :customer_address, :customer_city, :customer_state,
                                        :customer_zip)
     end

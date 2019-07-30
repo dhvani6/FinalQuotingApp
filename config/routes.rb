@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :series, only: :index
   end
 
+  resources :series, only: [] do
+    resources :models, only: :index
+  end
+
+
   resources :equipment_tires
   resources :equipment_implements
   resources :equipment_attachments
