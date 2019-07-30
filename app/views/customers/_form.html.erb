@@ -18,37 +18,49 @@
   </div>
 
   <div class="field">
-    <strong>First Name:</strong>
+    <strong>First Name</strong>
+    <br>
     <%= form.text_field :customer_fname %>
   </div>
 
   <div class="field">
-    <strong>Last Name:</strong>
+    <strong>Last Name</strong>
+    <br>
     <%= form.text_field :customer_lname %>
   </div>
 
   <div class="field">
-    <strong>Phone Number:</strong>
+    <strong>Phone Number</strong>
+    <br>
+    <italics>Format: XXX-XXX-XXXX</italics>
+    <br>
     <%= form.text_field :customer_phone %>
   </div>
 
   <div class="field">
-    <strong>Address:</strong>
+    <strong>Street Address</strong>
+    <br>
     <%= form.text_field :customer_address %>
   </div>
 
   <div class="field">
-    <strong>City:</strong>
+    <strong>City</strong>
     <%= form.text_field :customer_city %>
   </div>
 
   <div class="field">
-    <strong>State:</strong>
-    <%= form.text_field :customer_state %>
+    <strong>State Abbreviation:</strong>
+    <br>
+    <italics>Format: XX, Example: TX</italics>
+    <br>
+    <%= form.text_field :customer_state%>
   </div>
 
   <div class="field">
-    <strong>Zip Code:</strong>
+    <strong>Zip Code</strong>
+    <br>
+    <italics>Format: XXXXX</italics>
+    <br>
     <%= form.text_field :customer_zip %>
   </div>
 

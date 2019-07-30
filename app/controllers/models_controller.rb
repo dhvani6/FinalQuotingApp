@@ -4,6 +4,8 @@ class ModelsController < ApplicationController
   # GET /models
   # GET /models.json
   def index
+      series = Series.includes(:model).find(params[:series_id])
+      render json: series.models.select(:model_number, :id).map { |model| { id: model.id, name: model_number }}
   end
 
   # GET /models/1
