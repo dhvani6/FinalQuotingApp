@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all
+    @quotes = Quote.page params[:page]
     respond_to do |format|
       format.html
       format.csv {render plain: @quotes.to_csv}

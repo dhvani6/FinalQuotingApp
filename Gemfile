@@ -17,6 +17,8 @@ gem 'wkhtmltopdf-binary'
 
 gem 'prawn'
 
+gem 'kaminari'
+
 # gem 'listen', '~> 3.0'
 
 gem 'wdm', '>= 0.1.0'

@@ -67,5 +67,16 @@ table th {
     background-color: #00519A;
     color: white;
 }
+.img1 {
+    width: 100px;
+    length: 200px;
+
+}
+
+
+img{
+    width: 100px;
+    height: 100px;
+}
 
 

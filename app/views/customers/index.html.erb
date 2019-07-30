@@ -23,7 +23,7 @@
         <td><%= customer.customer_phone %></td>
         <td><%= link_to 'Show', customer %>
             <%= link_to 'Edit', edit_customer_path(customer) %>
-            <%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,6 +32,6 @@
 
 <br>
 
+<%= paginate @customers, left: 3, right: 3%>
 <h3><%= link_to 'New Customer', new_customer_path %></h3>
 
-<%= will_paginate @customers, renderer: BootstrapPagination::Rails, previous_label: "Previuos", next_label: "Next", inner_window: 1, outer_window: 0; %>

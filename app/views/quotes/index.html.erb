@@ -3,10 +3,7 @@
 <h1>Quotes</h1>
 
 <h3><%= link_to 'New Quote', new_quote_path %></h3>
-<p>
-  Download:
-  <%= link_to "Excel", quotes_path(format: "csv") %>
-</p>
+
 
 
 <table>
@@ -34,5 +31,10 @@
 </table>
 
 <br>
+<p>
+  Download:
+  <%= link_to "Quote Data", quotes_path(format: "csv") %>
+</p>
+<%= paginate @quotes %>
 
 <h3><%= link_to 'New Quote', new_quote_path %></h3>

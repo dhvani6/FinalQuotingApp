@@ -31,5 +31,6 @@ class Quote < ApplicationRecord
   belongs_to :implement
   has_many :specific_equipments
 
+  paginates_per 5
 
 end

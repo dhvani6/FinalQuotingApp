@@ -9,10 +9,13 @@ class Customer < ApplicationRecord
   validates :customer_zip, presence: true, format: { with: /\d{5}/, message: "must be xxxxx format." }
   before_save :defaultz
 
+
+
   def defaultz
     self.customer_state ||= 'TX'
   end
 
   belongs_to :employee
   has_many :quotes
+  paginates_per 5
 end

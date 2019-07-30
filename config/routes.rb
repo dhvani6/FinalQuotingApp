@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'Margin Markup Management', to: 'quote_configs#index'
   get 'Quote Reports', to: 'quotes#reports', as: :report
 
-  root to: 'quotes#index'
+
   resources :quotes
   resources :manufacturers, only: [] do
     resources :series, only: :index
