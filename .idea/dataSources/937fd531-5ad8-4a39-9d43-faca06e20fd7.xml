@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@172.26.54.217">
-  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.14">
+  <database-model serializer="dbm" rdbms="MSSQL" format-version="4.11">
     <root id="1">
       <ServerVersion>14.0.202</ServerVersion>
+      <ServerType>standalone</ServerType>
     </root>
     <database id="2" parent="1" name="COT-CIS4375-09">
       <ObjectId>5</ObjectId>
@@ -32,7 +33,7 @@
     </database>
     <schema id="8" parent="3" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2019-07-28.15:05:56.103</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-07-29.17:54:38.573</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -85,7 +86,7 @@
     <table id="23" parent="8" name="customers">
       <ObjectId>1486628339</ObjectId>
       <CreatedTimestamp>2019-07-23.14:46:02.580</CreatedTimestamp>
-      <ModifiedTimestamp>2019-07-23.14:47:11.073</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-07-29.12:54:08.037</ModifiedTimestamp>
     </table>
     <table id="24" parent="8" name="discounts">
       <ObjectId>1422628111</ObjectId>
@@ -95,7 +96,7 @@
     <table id="25" parent="8" name="employees">
       <ObjectId>1454628225</ObjectId>
       <CreatedTimestamp>2019-07-23.14:46:02.530</CreatedTimestamp>
-      <ModifiedTimestamp>2019-07-23.14:46:02.593</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-07-29.12:54:08.033</ModifiedTimestamp>
     </table>
     <table id="26" parent="8" name="equipment_attachments">
       <ObjectId>1550628567</ObjectId>
@@ -384,10 +385,10 @@
       <UnderlyingIndexName>PK__customer__3213E83F75CC4C0A</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="77" parent="23" name="fk_rails_3b4cb91956">
-      <ObjectId>1518628453</ObjectId>
-      <CreatedTimestamp>2019-07-23.14:46:02.593</CreatedTimestamp>
-      <ModifiedTimestamp>2019-07-23.14:46:02.593</ModifiedTimestamp>
+    <foreign-key id="77" parent="23" name="FK_customers_employees">
+      <ObjectId>539148966</ObjectId>
+      <CreatedTimestamp>2019-07-29.12:54:08.033</CreatedTimestamp>
+      <ModifiedTimestamp>2019-07-29.12:54:08.033</ModifiedTimestamp>
       <ColNames>employee_id</ColNames>
       <RefTableId>1454628225</RefTableId>
       <RefSchemaName>dbo</RefSchemaName>
