@@ -14,11 +14,14 @@ body {
     display:block;
     padding:1rem 0 .25rem;
     font-size:14px;
+   text-align: center;
   }
   input, textarea{
     display:block;
-    width: 100%;
-
+    maring-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
     padding: .25rem;
   }
 }
