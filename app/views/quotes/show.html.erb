@@ -1,80 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @quote.customer_id %>
-</p>
+<h3>
+  <italics>Customer:</italics>
+  <%= @quote.customer.customer_lname %>
+</h3>
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @quote.manufacturer_id %>
-</p>
+<table id="quotes1">
+  <thead>
+  <tr>
+    <th>Manufacturer</th>
+    <th>Series</th>
+    <th>Model</th>
+    <th>Attachment</th>
+    <th>Implement</th>
+    <th>Front Tire Replacements</th>
+    <th>Rear Tire Replacements</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @quote.manufacturer.manufacturer_name %></td>
+    <td><%= @quote.series.series_number %></td>
+    <td><%= @quote.model.model_number %></td>
+    <td><%= @quote.attachment.attachment_feature %></td>
+    <td><%= @quote.implement.implement_feature %></td>
+    <td><%= @quote.tire_replacement_front.front_tires %></td>
+    <td><%= @quote.tire_replacement_rear.rear_tires %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Series:</strong>
-  <%= @quote.series_id %>
-</p>
+<br>
 
-<p>
-  <strong>Model:</strong>
-  <%= @quote.model_id %>
-</p>
+<table id="quotes1">
+  <thead>
+  <tr>
+    <th>Base Quote Price</th>
+    <th>Total Price</th>
+    <th>Quote Date</th>
+    <th>Markup Percentage</th>
+    <th>Date Finalized</th>
+    <th>Is Quote Finalized?</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @quote.base_quote_price %></td>
+    <td><%= @quote.total_price %></td>
+    <td><%= @quote.quote_date %></td>
+    <td><%= @quote.markup_percentage %></td>
+    <td><%= @quote.finalize_date %></td>
+    <td><%= @quote.sale_finalized? ? 'Yes' : 'No' %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Quoted Attachment:</strong>
-  <%= @quote.attachment_id %>
-</p>
 
-<p>
-  <strong>Quoted Implement:</strong>
-  <%= @quote.implement_id %>
-</p>
-<p>
-  <strong>Quoted Front Tire replacements:</strong>
-  <%= @quote.tire_replacement_front_id %>
-</p>
-
-<p>
-  <strong>Quoted Rear Tire replacement:</strong>
-  <%= @quote.tire_replacement_rear_id %>
-</p>
-
-<p>
-  <strong>Base Quote Price:</strong>
-  <%= @quote.base_quote_price %>
-</p>
-
-<p>
-  <strong>Total Price:</strong>
-  <%= @quote.total_price %>
-</p>
-
-<p>
-  <strong>Quote Date:</strong>
-  <%= @quote.quote_date %>
-</p>
-
-<p>
-  <strong>Markup Percentage:</strong>
-  <%= @quote.markup_percentage %>
-</p>
-
-<p>
-  <strong>Discount Given:</strong>
-  <%= @quote.discount_id_previous_change %>
-</p>
-
-<p>
-  <strong>Finalize Date:</strong>
-  <%= @quote.finalize_date %>
-</p>
-
-<p>
-  <strong>Is the Sale Finalized?:</strong>
-  <%= @quote.sale_finalized? ? 'Yes' : 'No' %>
-</p>
-
+<%= link_to "Quote Report", quote_path(@quote, format: "pdf") %>
+<br>
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>
-<p><%= link_to "Quote Report", quote_path(@quote, format: "pdf") %> </p>
 

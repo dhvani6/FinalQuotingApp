@@ -29,8 +29,9 @@
   </tbody>
 
 </table>
-<%= paginate @customers %>
+
 <br>
 
 <h3><%= link_to 'New Customer', new_customer_path %></h3>
 
+<%= will_paginate @customers, renderer: BootstrapPagination::Rails, previous_label: "Previuos", next_label: "Next", inner_window: 1, outer_window: 0; %>

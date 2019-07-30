@@ -14,9 +14,9 @@
 
   <div class="submission-quote">
 
-  <div class="field", onchange="validation()">
+  <div class="field">
     <strong>Customer:</strong>
-    <%= form.collection_select :customer_id, Customer.order(:customer_lname), :id, :customer_lname, include_blank: true  %>
+    <%= form.collection_select :customer_id, Customer.order(:customer_lname), :id, :customer_lname %>
   </div>
 
     <div class="field">
@@ -32,33 +32,33 @@
       <%= form.select :series_id,
                       options_for_select(Series.select_values(quote.try(:manufacturer)), quote.try(:series).try(:id)),
                       {},
-                      {} %>
+                      {class: 'remote-select', data: {target: '#quote_model_id'}} %>
     </div>
 
-    <div class="field", onchange="psycho()", onchange="testing()">
-      <strong> Model:</strong>
-      <%= form.collection_select :model_id, Model.order(:model_number),:id, :model_number, include_blank: true  %>
+    <div class="field", onchange="psycho()">
+      <strong>Model:</strong>
+      <%= form.grouped_collection_select :model_id, Series.order(:series_number), :model, :series_number, :id, :model_number, include_blank: true %>
     </div>
 
 
 <%-# the specific equipment will have its foreign key column 'quote_id' filled after a quote with its related model number has been finalized -%>
   <div class="field", onchange="psycho()">
-    <strong> Attachment (Optional):</strong>
+    <strong> Attachment:</strong>
     <%= form.collection_select :attachment_id, Attachment.order(:attachment_feature),:id, :attachment_feature, include_blank: true  %>
   </div>
 
   <div class="field", onchange="psycho()">
-    <strong>Implement (Optional):</strong>
+    <strong>Implement:</strong>
     <%= form.collection_select :implement_id, Implement.order(:implement_feature),:id, :implement_feature, include_blank: true  %>
   </div>
 
   <div class="field", onchange="psycho()">
-    <strong>Front Replacement Tires (Optional):</strong>
+    <strong>Front Replacement Tires:</strong>
     <%= form.collection_select :tire_replacement_front_id, TireReplacementFront.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
   <div class="field", onchange="psycho()">
-    <strong>Rear Replacement Tires (Optional):</strong>
+    <strong>Rear Replacement Tires:</strong>
     <%= form.collection_select :tire_replacement_rear_id, TireReplacementRear.order(:order_number),:id, :order_number, include_blank: true  %>
   </div>
 
@@ -108,22 +108,6 @@
 
 <%#@quote.model_id. %>
   <script>
-    function validation() {
-        console.log("Validation");
-        if (document.forms[0]['quote_manufacturer_id'].value = 'Kubota') {
-            select(document.forms[0]['quote_series_id'].value = 'Z100')
-        }
-
-
-    }
-
-
-
-
-
-
-
-
       function psycho() {
           console.log("Called");
 
@@ -396,16 +380,6 @@
           //+ a + i + tf + tr
       }
   </script>
-
-    <!--script testing for model dropdown -->
-    <script>
-      function testing() {
-          if (quote.series_number == 'Z100' || 'Z400')
-              model_number = 'B2301'
-          else
-              model_number = 'Boomer 4'
-      }
-    </script>
 
   <div class="actions" id="quote-submit">
     <%= form.submit %>
