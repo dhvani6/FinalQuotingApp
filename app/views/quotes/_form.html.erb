@@ -65,7 +65,9 @@
 
   <div class="field", onmouseover="psycho()">
     <strong>Base Quote Price:</strong>
+
     <%= form.text_field :base_quote_price, :value => 0.00, :readonly => true  %>
+
   </div>
 
   <div class="field">
@@ -91,11 +93,13 @@
 
   <div class="field">
     <strong>(Send to Customer for Approval First) Finalize Date:</strong>
+    <br>
+
     <%= form.datetime_select :finalize_date %>
   </div>
 
-  <div class="field">
-    <strong>Was payment received and the transaction finalized?</strong>
+  <div class="field" id="check-btn" class="radio">
+    <strong>--------Was payment received and the transaction finalized?--------</strong>
     <%= form.check_box :sale_finalized %>
   </div>
 

@@ -4,6 +4,10 @@
 body {
   font-family: "Times New Roman";
 }
+.field
+{text-align: left;}
+//check box for if sales and transactions were finalized
+
 .submission-quote{
 
   max-width: 500px;
@@ -14,13 +18,13 @@ body {
     display:block;
     padding:1rem 0 .25rem;
     font-size:14px;
-   text-align: center;
+    text-align: left;
   }
   input, textarea{
-    display:block;
+    display: block;
     maring-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 100%;
     text-align: center;
     padding: .25rem;
   }
@@ -32,6 +36,7 @@ body {
   margin: 1rem 0;
   color:white;
   width:auto;
+
   text-transform:uppercase;
   cursor:pointer;
   &:hover {

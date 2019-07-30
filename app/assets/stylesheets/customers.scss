@@ -5,6 +5,9 @@
 .border {
   border: 1px solid #888;
 }
+.field  {
+  text-align: center;
+}
 
 /*.pagination {
   display: flex;
@@ -15,10 +18,10 @@
 }*/
 body {
   font-family: "Times New Roman";
-  text-align: center;
+  text-align: left;
 }
 .submission-form {
-  text-area: center;
+  //text-area: center;
   max-width: 500px;
   margin: 2rem auto;
   border: 2px solid #00519A;
@@ -32,7 +35,7 @@ body {
   input, textarea{
     display:block;
     width: 100%;
-    text-align: center;
+   // text-align: center;
 
 
 
